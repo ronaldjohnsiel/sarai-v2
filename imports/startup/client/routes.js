@@ -7,7 +7,7 @@ import '../../ui/pages/home/home.js';
 import '../../ui/pages/not-found/not-found.js';
 
 // MAIN LAYOUT
-import '../../ui/layouts/main/main-layout.js'
+import '../../ui/layouts/main/main-layout.js';
 
 // PAGES
 import '../../ui/pages/about/about.js';
@@ -19,7 +19,7 @@ FlowRouter.route('/', {
   name: 'home',
   action() {
     BlazeLayout.render('MainLayout', { main: 'App_home' });
-  }
+  },
 });
 
 // ABOUT
@@ -27,7 +27,7 @@ FlowRouter.route('/about', {
   name: 'about',
   action() {
     BlazeLayout.render('MainLayout', { main: 'About' });
-  }
+  },
 });
 
 // 404
