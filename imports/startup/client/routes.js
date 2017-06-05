@@ -18,7 +18,7 @@ import '../../ui/pages/about/about.js';
 FlowRouter.route('/', {
   name: 'home',
   action() {
-    BlazeLayout.render('MainLayout', { main: 'App_home' });
+    BlazeLayout.render('MainLayout', { main: 'Home' });
   },
 });
 
