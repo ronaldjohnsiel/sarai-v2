@@ -3,7 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import './carousel.html';
 
 Template.Carousel.onCreated(function() {
-  console.log('Creating Carousel');
   Meteor.subscribe('slides.all');
 });
 
