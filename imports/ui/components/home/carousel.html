@@ -1,3 +1,9 @@
 <template name="Carousel">
-  THis is the carousel
+  This is the carousel
+
+  {{#each slides}}
+    <h3>{{title}}</h3>
+    <h4>{{subtitle}}</h4>
+    <p>{{text}}</p>
+  {{/each}}
 </template>

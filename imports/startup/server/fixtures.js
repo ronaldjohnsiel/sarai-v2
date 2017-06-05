@@ -2,6 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Links } from '../../api/links/links.js';
+import { Slides } from '../../api/slides/slides.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
@@ -30,5 +31,20 @@ Meteor.startup(() => {
     ];
 
     data.forEach(link => Links.insert(link));
+  }
+
+  if (Slides.find().count() == 0) {
+  const data = [
+    {
+      title: 'Smarter Crop Management',
+      subtitle: 'Helping farmers to produce with less',
+      text: 'Know the right amount of nutrient...',
+      buttonText: 'More',
+      buttonURL: '#',
+      rank: 1
+    }
+  ]
+
+    data.forEach(slide => Slides.insert(slide));
   }
 });
