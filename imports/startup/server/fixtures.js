@@ -147,7 +147,7 @@ Meteor.startup(() => {
     {
       title: 'Smarter Crop Management # 2',
       subtitle: 'Helping farmers to produce with less',
-      text: 'Know the right amount of nutrient...',
+      text: 'Know the right amount of nutrient...',  
       buttonText: 'More',
       buttonURL: '#',
       rank: 2,
