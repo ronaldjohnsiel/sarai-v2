@@ -1,0 +1,26 @@
+<template name="CMSServices">
+  <div class="container">
+  <h2>Services Settings</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Tagline</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each service in services}}
+      <tr>
+        <td>
+          <img class="cms-service-list-thumbnail" src="{{service.thumbnail}}" />
+        </td>
+        <td>
+          {{service.title}}<br/>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+</template>
