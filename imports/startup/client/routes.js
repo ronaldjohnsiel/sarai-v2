@@ -51,6 +51,7 @@ import '../../ui/pages/crops/coconut/coconut.js';
 import '../../ui/pages/crops/coffee/coffee.js';
 import '../../ui/pages/crops/cacao/cacao.js';
 
+
 import '../../ui/pages/services-page/services-page.js';
 import '../../ui/pages/monitoring/monitoring.js';
 
