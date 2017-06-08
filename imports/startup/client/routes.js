@@ -146,7 +146,6 @@ FlowRouter.route('/admin/main', {
     BlazeLayout.render('CMSLayout', { main: 'CMSMain' });
   },
 });
-
 FlowRouter.route('/admin/main-header', {
   name: 'admin.main-header',
   triggersEnter: [ isAdminRedirect ],
