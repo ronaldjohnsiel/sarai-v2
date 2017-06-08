@@ -3,6 +3,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Links } from '../../api/links/links.js';
 import { Slides } from '../../api/slides/slides.js';
+import { Projects } from '../../api/projects/projects.js';
 import { Logos } from '../../api/logos/logos.js';
 
 Meteor.startup(() => {
@@ -176,6 +177,50 @@ Meteor.startup(() => {
     data.forEach(slide => Slides.insert(slide));
   }
 
+  if (Projects.find().count() == 0) {
+  const data = [
+    {
+      url: '#',
+      title: 'Integrated Crop Management',
+      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',  
+      text2: 'Nutrient Management is a vital process in farming. It pertains...',
+      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    },
+    {
+      url: '#',
+      title: 'Integrated Crop Management # 2',
+      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',  
+      text2: 'Nutrient Management is a vital process in farming. It pertains...',
+      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    },
+    {
+      url: '#',
+      title: 'Integrated Crop Management # 3',
+      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',  
+      text2: 'Nutrient Management is a vital process in farming. It pertains...',
+      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    },
+    {
+      url: '#',
+      title: 'Integrated Crop Management # 4',
+      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',  
+      text2: 'Nutrient Management is a vital process in farming. It pertains...',
+      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    }
+  ]
+
+    data.forEach(project => Projects.insert(project));
+
+  }
+  
   if (Logos.find().count() === 0) {
     const data = [
       {
