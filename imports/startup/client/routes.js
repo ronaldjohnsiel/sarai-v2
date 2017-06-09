@@ -61,7 +61,6 @@ import '../../ui/pages/advisories/advisories.js';
 
 import '../../ui/pages/monitoring/monitoring.js';
 
-
 // Set up all routes in the app
 // HOMEPAGE
 FlowRouter.route('/', {
@@ -243,7 +242,6 @@ FlowRouter.route("/admin/services/:_id", {
     BlazeLayout.render("CMSLayout", {main: "CMSServicesForm"});
   },
 });
-
 FlowRouter.route('/admin/weather', {
   name: 'admin.weather',
   triggersEnter: [ isAdminRedirect ],
