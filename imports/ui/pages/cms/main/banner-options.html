@@ -1,0 +1,38 @@
+<template name="BannerOptions">
+  <div class="cms-block-content-label">
+            Slider Content
+          </div>
+          <table class="mdl-data-table mdl-js-data-table" width="100%">
+            <thead>
+              <tr>
+                <th id="cms-banner-rank-order" class="mdl-data-table__header--sorted-ascending">Rank</th>
+                <th class="mdl-data-table__cell--non-numeric">Image</th>
+                <th class="mdl-data-table__cell--non-numeric">Title</th>
+                <th class="mdl-data-table__cell--non-numeric">Subtitle</th>
+                <th class="mdl-data-table__cell--non-numeric">Text</th>
+                <th class="mdl-data-table__cell--non-numeric ">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each entry in slides}}
+                <tr>
+                  <td>{{entry.rank}}</td>
+                  <td class="mdl-data-table__cell--non-numeric"><img src="{{entry.image}}" class="cms-image-preview"></td>
+                  <td class="mdl-data-table__cell--non-numeric">{{truncateTableEntry entry.title}}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{truncateTableEntry entry.subtitle}}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{truncateTableEntry entry.text}}</td>
+                  <td class="mdl-data-table__cell--non-numeric">
+                    <a href="" id="slider-edit-{{entry._id}}" class="cms-banner-slider-edit"><i class="material-icons">edit</i></a>
+                    <a href="" id="slider-delete-{{entry._id}}" class="cms-banner-slider-delete"><i class="material-icons">delete</i></a>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+
+          <div class="cms-block-actions">
+            <button id="cms-banner-slide-add" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              <i class="material-icons">add</i> Add Slide
+            </button>
+          </div>
+</template>

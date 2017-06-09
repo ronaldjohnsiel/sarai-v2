@@ -3,6 +3,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Slides } from '../slides.js';
 
-Meteor.publish('slides.all', function() {
+Meteor.publish('slides', function() {
   return Slides.find();
 });

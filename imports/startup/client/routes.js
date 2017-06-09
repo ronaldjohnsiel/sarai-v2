@@ -57,6 +57,12 @@ FlowRouter.route('/admin/main-header', {
     BlazeLayout.render('CMSLayout', { main: 'HeaderOptions' });
   },
 });
+FlowRouter.route('/admin/main-banner', {
+  name: 'admin.main-banner',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'BannerOptions' });
+  },
+});
 FlowRouter.route('/admin/about-us', {
   name: 'admin.about-us',
   action() {
