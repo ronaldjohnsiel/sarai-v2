@@ -13,7 +13,7 @@ Template.CMSServices.onCreated(() => {
 
 Template.CMSServices.helpers({
   services: () => {
-    const records = Services.find({}).fetch()
+    const records = Projects.find({}).fetch()
 
     if (records) {
       return records
