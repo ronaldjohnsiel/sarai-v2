@@ -1,0 +1,18 @@
+<template name="OurStory">
+
+  <h3><b>Our Story</b></h3>
+
+  <div id="story-content" class="container">
+    <div id="content" class="col-md-6">
+      {{#each story}}
+        <p id="story-body">
+          {{content}}
+        </p>
+      {{/each}}
+    </div>
+    <div class="col-md-6">
+      <img id="story-img" src="img/about-sarai-consult.jpg">
+    </div>
+  </div>
+
+</template>

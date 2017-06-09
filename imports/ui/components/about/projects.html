@@ -1,0 +1,32 @@
+<template name="Projects">
+    
+  <h3><b>The Projects</b></h3>
+
+  <div class = "container">  
+    <div class="panel-group" id="accordion">
+      {{#each projects}}
+        <div class="panel">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{@index}}">
+                {{title}}
+              </a>
+            </h4>
+          </div>
+          <div id="collapse{{@index}}" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>
+                {{description}}
+                <br>
+                {{#each subDescription}}
+                  <br>-{{this}}
+                {{/each}}
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  
+</template>
