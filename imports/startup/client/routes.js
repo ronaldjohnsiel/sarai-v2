@@ -339,30 +339,22 @@ FlowRouter.route("/admin/services/:_id", {
 });
 FlowRouter.route('/admin/weather', {
   name: 'admin.weather',
-<<<<<<< 8dec776492af03e33108d8f2e7bf9a2dec6dd8c0
   triggersEnter: [ function(context, redirect) {
     if(!isAdmin()){
       redirect('/admin/login');
     }
   }],
-=======
-  triggersEnter: [ isAdminRedirect ],
->>>>>>> updated fixtures
   action() {
     BlazeLayout.render('CMSLayout', { main: 'WeatherCMS' });
   },
 });
 FlowRouter.route('/admin/weather-settings', {
   name: 'admin.weather-settings',
-<<<<<<< 8dec776492af03e33108d8f2e7bf9a2dec6dd8c0
   triggersEnter: [ function(context, redirect) {
     if(!isAdmin()){
       redirect('/admin/login');
     }
   }],
-=======
-  triggersEnter: [ isAdminRedirect ],
->>>>>>> updated fixtures
   action() {
     BlazeLayout.render('CMSLayout', { main: 'WeatherSettingsCMS' });
   },
