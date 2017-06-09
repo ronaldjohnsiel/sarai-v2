@@ -75,4 +75,3 @@ const setFormDirty = () => {
   $('#cms-service-col1title').addClass('is-dirty')
   $('#cms-service-col2title').addClass('is-dirty')
 }
-
