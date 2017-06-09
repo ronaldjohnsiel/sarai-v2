@@ -1,0 +1,52 @@
+<template name="HeaderOptions">
+  <div class="container">
+    <div class="row">
+      <div>
+
+            {{#each list in links}}
+              <div>
+                <span class="cms-header-link-name">{{list.title}}</span> - <span class="cms-header-link-href">{{list.url}}</span>
+
+                <span class="cms-header-link-actions">
+                   <a href="" id="{{@index}}" class="cms-header-link-edit"><i class="material-icons">edit</i></a>
+                  <a href="" id="{{@index}}" class="cms-header-link-delete"><i class="material-icons">delete</i></a>
+                </span>
+              </div>
+
+              {{#let parentIndex=@index}}
+                {{#each link in list.links}}
+                  <div class="cms-header-sub-level-link">
+                    <span class="cms-header-link-name">
+                      {{link.title}}
+                    </span> -
+                    <span class="cms-header-link-href">
+                      {{link.url}}
+                    </span>
+
+                    <span class="cms-header-link-actions">
+                      <a href="" id="{{parentIndex}}-{{@index}}" class="cms-header-link-edit"><i class="material-icons">edit</i></a>
+                      <a href="" id="{{parentIndex}}-{{@index}}" class="cms-header-link-delete"><i class="material-icons">delete</i></a>
+                    </span>
+
+                  </div>
+                  <div style="clear: both"></div>
+                {{/each}}
+
+
+                <div class="cms-header-sub-level-link">
+                  <button id="add-{{parentIndex}}" class="btn">
+                    <span class="glyphicon glyphicon-plus"></span>Add Sub Link
+                  </button>
+                </div>
+                <hr>
+              {{/let}}
+            {{/each}}
+            <div>
+              <button id="add-top-level-link" class="btn">
+                <span class="glyphicon glyphicon-plus"></span> Add Top Level Link
+              </button>
+            </div>
+          </div>
+    </div>
+  </div>  
+</template>
