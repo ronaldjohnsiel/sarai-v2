@@ -71,7 +71,6 @@ import '../../ui/pages/advisories/advisories.js';
 
 
 
-
 // Set up all routes in the app
 // HOMEPAGE
 FlowRouter.route('/', {
