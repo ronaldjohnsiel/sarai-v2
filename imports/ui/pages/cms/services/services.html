@@ -13,14 +13,24 @@
       {{#each service in services}}
       <tr>
         <td>
-          <img class="cms-service-list-thumbnail" src="{{service.thumbnail}}" />
+          <img class="cms-service-list-thumbnail" height="auto" width="200px" src="{{service.image}}" />
         </td>
         <td>
           {{service.title}}<br/>
+        </td>
+        <td>
+          {{> CMSServicesEditButton id=service._id}}
+          {{> CMSServicesDeleteButton service=service}}
         </td>
       </tr>
       {{/each}}
     </tbody>
   </table>
 </div>
+
+  <div class="cms-block-actions" align="center">
+    <button id="cms-service-add" type="button" class="btn">
+      <span class="glyphicon glyphicon-plus"></span> Add Service
+    </button>
+  </div>
 </template>
