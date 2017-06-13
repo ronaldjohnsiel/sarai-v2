@@ -21,7 +21,6 @@ import '../../ui/pages/cms/services/services.js';
 import '../../ui/pages/cms/main/main.js';
 import '../../ui/pages/cms/weather/weather.js';
 import '../../ui/pages/cms/main/header-options.js';
-
 // Set up all routes in the app
 // HOMEPAGE
 FlowRouter.route('/', {
