@@ -2919,7 +2919,7 @@ Meteor.startup(() => {
     data.forEach(slide => Slides.insert(slide));
   }
 
-  if (Services.find().count() == 0) {
+  if (Projects.find().count() == 0) {
   const data = [
     {
       name: 'suitability-maps',
@@ -3026,9 +3026,8 @@ Meteor.startup(() => {
       solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
       thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     }
-  ];
-    data.forEach(project => Services.insert(project));
-
+  ]
+    data.forEach(project => Projects.insert(project));
   }
 
   if (Logos.find().count() === 0) {
