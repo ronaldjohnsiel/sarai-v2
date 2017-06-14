@@ -144,7 +144,6 @@ FlowRouter.route('/admin/main-banner', {
     BlazeLayout.render('CMSLayout', { main: 'BannerOptions' });
   },
 });
-
 FlowRouter.route('/admin/about-us-content', {
   name: 'admin.about-us-content',
   action() {
