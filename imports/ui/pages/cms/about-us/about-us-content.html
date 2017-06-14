@@ -1,0 +1,31 @@
+<template name="CMSAboutUsContent">
+  <div class="cms-block-header">
+    Our Story
+  </div>
+
+  <div align="center">
+    <div>
+      <div {{cmsBlockContentRowClasses}}>
+        <div id="cms-about-us-content-title-div">
+          <label> Title </label>
+          <br />
+          <input type="text" id="cms-about-us-content-title" value="{{title}}">
+        </div>
+      </div>
+    </div>
+    <br />
+    <div {{cmsBlockContentRowClasses}}>
+      <div id="cms-about-us-content-text-div">
+        <label> Content </label>
+        <br />
+        <textarea type="text" rows= "7" id="cms-about-us-content-text" value="{{content}}"></textarea>
+      </div>
+    </div>
+  </div>
+
+   <div class="cms-block-actions">
+      <button id="cms-about-us-content-save" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+        Save
+      </button>
+    </div>
+</template>

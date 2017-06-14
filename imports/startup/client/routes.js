@@ -16,7 +16,7 @@ import '../../ui/pages/home/home.js';
 import '../../ui/pages/about/about.js';
 import '../../ui/pages/cms/cms.js';
 import '../../ui/pages/cms/cms-home/cms-home.js';
-import '../../ui/pages/cms/about-us/about-us.js';
+import '../../ui/pages/cms/about-us/about-us-content.js';
 import '../../ui/pages/cms/services/services.js';
 import '../../ui/pages/cms/main/main.js';
 import '../../ui/pages/cms/weather/weather.js';
@@ -68,10 +68,10 @@ FlowRouter.route('/admin/main-banner', {
     BlazeLayout.render('CMSLayout', { main: 'BannerOptions' });
   },
 });
-FlowRouter.route('/admin/about-us', {
-  name: 'admin.about-us',
+FlowRouter.route('/admin/about-us-content', {
+  name: 'admin.about-us-content',
   action() {
-    BlazeLayout.render('CMSLayout', { main: 'CMSAboutUs' });
+    BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsContent' });
   },
 });
 FlowRouter.route('/admin/services', {
