@@ -25,4 +25,20 @@ Meteor.methods({
       createdAt: new Date(),
     });
   },
+  'cms-service-add': (title, tagline, thumbnail, info, media, col1, col2) => {
+
+    Services.insert({
+      title,
+      tagline,
+      thumbnail,
+      info,
+      media,
+      col1,
+      col2
+    })
+  },
+  
+  'cms-service-delete': (_id) => {
+    Services.remove({_id})
+  }
 });

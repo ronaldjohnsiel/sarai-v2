@@ -1,4 +1,5 @@
 import './services-cms-delete-button.html'
+import { Session } from 'meteor/session';
 
 Template.CMSServicesDeleteButton.events({
   'click .cms-service-delete': (event, template) => {

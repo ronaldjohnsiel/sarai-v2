@@ -1,14 +1,14 @@
 <template name="CMSServicesForm">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--1-offset-desktop mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-
       {{#if formActionEdit}}
-        {{> ServicesCMSEditForm service=service}}
+        {{> CMSServicesEditForm service=service}}
       {{else}}
         {{#if formActionAdd}}
-          {{> ServicesCMSEditForm}}
+          {{> CMSServicesEditForm}}
         {{/if}}
       {{/if}}
+     
     </div>
   </div>
 </template>

@@ -6,11 +6,12 @@
             {{#each list in links}}
               <div>
                 <span class="cms-header-link-name">{{list.title}}</span> - <span class="cms-header-link-href">{{list.url}}</span>
-
-                <span class="cms-header-link-actions">
-                   <a href="" id="{{@index}}" class="cms-header-link-edit"><i class="material-icons">edit</i></a>
-                  <a href="" id="{{@index}}" class="cms-header-link-delete"><i class="material-icons">delete</i></a>
-                </span>
+                <div align="right">
+                  <span class="cms-header-link-actions">
+                     <a href="" id="{{@index}}" class="cms-header-link-edit" data-toggle="modal" data-target="#cms-header-dialog"><span class="glyphicon glyphicon-pencil"> </span></a>
+                    <a href="" id="{{@index}}" class="cms-header-link-delete"><span class="glyphicon glyphicon-trash"> </span></a>
+                  </span>
+                </div>
               </div>
 
               {{#let parentIndex=@index}}
@@ -22,19 +23,19 @@
                     <span class="cms-header-link-href">
                       {{link.url}}
                     </span>
-
-                    <span class="cms-header-link-actions">
-                      <a href="" id="{{parentIndex}}-{{@index}}" class="cms-header-link-edit"><i class="material-icons">edit</i></a>
-                      <a href="" id="{{parentIndex}}-{{@index}}" class="cms-header-link-delete"><i class="material-icons">delete</i></a>
-                    </span>
-
+                    <div align="right">
+                      <span class="cms-header-link-actions">
+                        <a href="" id="{{parentIndex}}-{{@index}}" class="cms-header-link-edit" data-toggle="modal" data-target="#cms-header-dialog"><span class="glyphicon glyphicon-pencil"> </span></a>
+                        <a href="" id="{{parentIndex}}-{{@index}}" class="cms-header-link-delete"><span class="glyphicon glyphicon-trash"> </span></a>
+                      </span>
+                    </div>
                   </div>
                   <div style="clear: both"></div>
                 {{/each}}
 
 
                 <div class="cms-header-sub-level-link">
-                  <button id="add-{{parentIndex}}" class="btn">
+                  <button id="add-{{parentIndex}}" class="btn cms-header-link-add" data-toggle="modal" data-target="#cms-header-dialog">
                     <span class="glyphicon glyphicon-plus"></span>Add Sub Link
                   </button>
                 </div>
@@ -42,11 +43,45 @@
               {{/let}}
             {{/each}}
             <div>
-              <button id="add-top-level-link" class="btn">
+              <button id="add-top-level-link" class="btn cms-header-link-add" data-toggle="modal" data-target="#cms-header-dialog">
                 <span class="glyphicon glyphicon-plus"></span> Add Top Level Link
               </button>
             </div>
           </div>
     </div>
-  </div>  
+  </div>
+
+  <div class="modal fade" id="cms-header-dialog" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">{{linkAction}}</h4>
+          </div>
+          <div class="modal-body">
+            <form action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="cms-banner-link-name">
+                <input class="mdl-textfield__input" type="text" id="cms-banner-link-name-input">
+                <label class="mdl-textfield__label" for="cms-banner-link-name-input">Link Name</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="cms-banner-link-href">
+                <input class="mdl-textfield__input" type="text" id="cms-banner-link-href-input">
+                <label class="mdl-textfield__label" for="cms-banner-link-href-input">Link href</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="cms-banner-link-rank">
+                <input class="mdl-textfield__input" type="text" id="cms-banner-link-rank-input">
+                <label class="mdl-textfield__label" for="cms-banner-link-rank-input">Link Rank</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-default save" data-dismiss="modal">Save</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
 </template>

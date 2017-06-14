@@ -21,6 +21,11 @@ import '../../ui/pages/cms/services/services.js';
 import '../../ui/pages/cms/main/main.js';
 import '../../ui/pages/cms/weather/weather.js';
 import '../../ui/pages/cms/main/header-options.js';
+import '../../ui/pages/cms/services/services-cms-form.js';
+import '../../ui/pages/cms/services/services-cms-edit-form.js';
+import '../../ui/pages/cms/services/services-cms-edit-button.js';
+import '../../ui/pages/cms/services/services-cms-delete-button.js';
+
 
 // Set up all routes in the app
 // HOMEPAGE
@@ -75,13 +80,19 @@ FlowRouter.route('/admin/services', {
     BlazeLayout.render('CMSLayout', { main: 'CMSServices' });
   },
 });
+FlowRouter.route('/admin/services/add', {
+  name: 'admin.services-add',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSServicesForm' });
+  },
+});
 FlowRouter.route("/admin/services/:_id", {
   name: 'services',
   //triggersEnter: [ isAdminRedirect ],
   action: (params, queryParams) => {
     BlazeLayout.reset();
     BlazeLayout.render("CMSLayout", {main: "CMSServicesForm"});
-  }
+  },
 });
 FlowRouter.route('/admin/weather', {
   name: 'admin.weather',

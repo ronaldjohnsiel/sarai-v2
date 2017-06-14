@@ -3,6 +3,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Services } from '../services.js';
 
-Meteor.publish('services.all', function() {
+Meteor.publish('services', function() {
   return Services.find();
 });

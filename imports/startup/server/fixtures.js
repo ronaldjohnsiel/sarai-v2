@@ -20,40 +20,48 @@ Meteor.startup(() => {
               title: 'SARAi',
               url: '/about-us',
               links: [],
+              rank: '1',
               createdAt: new Date(),
             },
             {
               title: 'Crops',
-              url: '/',
+              url: '',
+              rank: '2',
               links: [
                 {
                   title: 'Rice',
                   url: '/icm-rice',
+                  rank: '1',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Corn',
                   url: '/icm-corn',
+                  rank: '2',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Banana',
                   url: '/icm-banana',
+                  rank: '3',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Coconut',
                   url: '/icm-coconut',
+                  rank: '4',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Coffee',
                   url: '/icm-coffee',
+                  rank: '5',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Cacao',
                   url: '/icm-cacao',
+                  rank: '6',
                   createdAt: new Date(),
                 },
               ],
@@ -61,26 +69,31 @@ Meteor.startup(() => {
             },
             {
               title: 'Maps',
-              url: '/',
+              url: '',
+              rank: '3',
               links: [
                 {
                   title: 'Suitability Maps',
                   url: 'http://maps.sarai.ph/suitability-maps',
+                  rank: '1',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Crop Production Area',
                   url: 'http://maps.sarai.ph/crop-production-area',
+                  rank: '2',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Normalized Difference Vegetation Index (NDVI)',
                   url: 'http://maps.sarai.ph/ndvi',
+                  rank: '3',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Rainfall Map',
                   url: 'http://maps.sarai.ph/rainfall-maps',
+                  rank: '4',
                   createdAt: new Date(),
                 },
               ],
@@ -88,36 +101,43 @@ Meteor.startup(() => {
             },
             {
               title: 'Services',
-              url: '/',
+              url: '',
+              rank: '4',
               links: [
                 {
                   title: 'Alerts and Advisories',
                   url: 'http://sarai.ph/advisories',
+                  rank: '1',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Monitoring',
                   url: 'http://sarai.ph/weather-monitoring',
+                  rank: '2',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Planting Guide',
                   url: 'http://sarai.ph/rainfall-distribution',
+                  rank: '3',
                   createdAt: new Date(),
                 },
                 {
                   title: 'SPIDTech',
                   url: 'http://pests.sarai.ph/',
+                  rank: '4',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Open Data',
                   url: 'http://opendata.sarai.ph/',
+                  rank: '5',
                   createdAt: new Date(),
                 },
                 {
                   title: 'SARAi Eskwela',
                   url: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319',
+                  rank: '6',
                   createdAt: new Date(),
                 },
               ],
@@ -125,11 +145,13 @@ Meteor.startup(() => {
             },
             {
               title: 'Contact Us',
-              url: '/',
+              url: '',
+              rank: '5',
               links: [
                 {
                   title: 'Subscribe',
                   url: 'https://goo.gl/forms/i4jW7LshCSQpuyZ23',
+                  rank: '1',
                   createdAt: new Date(),
                 },
               ],
@@ -179,51 +201,76 @@ Meteor.startup(() => {
       rank: 4,
       image: 'https://geneticliteracyproject.org/wp-content/uploads/2016/07/n-fix-crops.jpg',
     },
+
   ];
 
     data.forEach(slide => Slides.insert(slide));
   }
 
-  if (Projects.find().count() == 0) {
+  if (Services.find().count() == 0) {
   const data = [
     {
       url: '#',
       title: 'Integrated Crop Management',
-      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
-      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
-      text2: 'Nutrient Management is a vital process in farming. It pertains...',
-      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
-      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     },
     {
       url: '#',
       title: 'Integrated Crop Management # 2',
-      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
-      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
-      text2: 'Nutrient Management is a vital process in farming. It pertains...',
-      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
-      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     },
     {
       url: '#',
       title: 'Integrated Crop Management # 3',
-      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
-      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
-      text2: 'Nutrient Management is a vital process in farming. It pertains...',
-      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
-      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     },
     {
       url: '#',
       title: 'Integrated Crop Management # 4',
-      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
-      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
-      text2: 'Nutrient Management is a vital process in farming. It pertains...',
-      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
-      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    },
+    {
+      url: '#',
+      title: 'Integrated Crop Management # 5',
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     }
-  ]
-    data.forEach(project => Projects.insert(project));
+  ];
+    data.forEach(project => Services.insert(project));
 
   }
 

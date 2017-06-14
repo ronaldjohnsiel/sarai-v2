@@ -1,18 +1,19 @@
 import './services.html'
 
+import { Session } from 'meteor/session';
 import { Meteor } from 'meteor/meteor';
-import { Projects } from '../../../../api/projects/projects.js';
+import { Services } from '../../../../api/services/services.js';
 import './services-cms-edit-button.html'
 import './services-cms-delete-button.html'
 
 
 Template.CMSServices.onCreated(() => {
-  Meteor.subscribe('projects')
+  Meteor.subscribe('services');
 });
 
 Template.CMSServices.helpers({
   services: () => {
-    const records = Projects.find({}).fetch()
+    const records = Services.find({}).fetch()
 
     if (records) {
       return records
@@ -29,13 +30,8 @@ Template.CMSServices.helpers({
 });
 
 Template.CMSServices.events({
-
-  'click .cms-service-edit': () => {
-
-  },
-
   'click #cms-service-add': () => {
-    Session.set('serviceAction', 'add')
-    FlowRouter.go('/admin/services/add')
+    Session.set('serviceAction', 'add');
+    FlowRouter.go('/admin/services/add');
   }
 });
