@@ -178,7 +178,6 @@ FlowRouter.route('/admin/main-top-header', {
     BlazeLayout.render('CMSLayout', { main: 'TopHeaderOptions' });
   },
 });
-
 FlowRouter.route('/admin/about-us-content', {
   name: 'admin.about-us-content',
   triggersEnter: [ isAdminRedirect ],
