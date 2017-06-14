@@ -7389,12 +7389,11 @@ Meteor.startup(() => {
       rank: 4,
       image: 'https://geneticliteracyproject.org/wp-content/uploads/2016/07/n-fix-crops.jpg',
     },
-
   ];
     data.forEach(slide => Slides.insert(slide));
   }
 
-  if (Projects.find().count() == 0) {
+  if (Services.find().count() == 0) {
   const data = [
     {
       name: 'suitability-maps',
@@ -7501,8 +7500,8 @@ Meteor.startup(() => {
       solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
       thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     }
-  ]
-    data.forEach(project => Projects.insert(project));
+  ];
+    data.forEach(project => Services.insert(project));
   }
 
   if (Logos.find().count() === 0) {
