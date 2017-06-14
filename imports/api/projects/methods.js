@@ -5,7 +5,7 @@ import { check } from 'meteor/check';
 import { Projects } from './projects.js';
 
 Meteor.methods({
-  'projects.insert'(title, description, subDescription) {
+  'projects.insert': (title, description, subDescription) => {
     check(title, String);
     check(description, String);
 

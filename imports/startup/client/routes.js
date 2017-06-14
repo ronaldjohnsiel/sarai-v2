@@ -8,10 +8,23 @@ import '../../ui/pages/not-found/not-found.js';
 // MAIN LAYOUT
 import '../../ui/layouts/main/main-layout.js';
 
+//CMS LAYOUT
+import '../../ui/layouts/cms/cms-layout.js';
+
 // PAGES
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/about/about.js';
 import '../../ui/pages/cms/cms.js';
+import '../../ui/pages/cms/cms-home/cms-home.js';
+import '../../ui/pages/cms/about-us/about-us.js';
+import '../../ui/pages/cms/services/services.js';
+import '../../ui/pages/cms/main/main.js';
+import '../../ui/pages/cms/weather/weather.js';
+import '../../ui/pages/cms/main/header-options.js';
+import '../../ui/pages/cms/services/services-cms-form.js';
+import '../../ui/pages/cms/services/services-cms-edit-form.js';
+import '../../ui/pages/cms/services/services-cms-edit-button.js';
+import '../../ui/pages/cms/services/services-cms-delete-button.js';
 
 
 // Set up all routes in the app
@@ -32,9 +45,59 @@ FlowRouter.route('/about', {
 });
 
 FlowRouter.route('/admin', {
-  name: 'admin.dashboard',
+  name: 'admin.home',
   action() {
-    BlazeLayout.render('MainLayout', { main: 'CMS' });
+    BlazeLayout.render('CMSLayout', { main: 'CMSHome' });
+  },
+});
+FlowRouter.route('/admin/main', {
+  name: 'admin.main',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSMain' });
+  },
+});
+FlowRouter.route('/admin/main-header', {
+  name: 'admin.main-header',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'HeaderOptions' });
+  },
+});
+FlowRouter.route('/admin/main-banner', {
+  name: 'admin.main-banner',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'BannerOptions' });
+  },
+});
+FlowRouter.route('/admin/about-us', {
+  name: 'admin.about-us',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSAboutUs' });
+  },
+});
+FlowRouter.route('/admin/services', {
+  name: 'admin.services',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSServices' });
+  },
+});
+FlowRouter.route('/admin/services/add', {
+  name: 'admin.services-add',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSServicesForm' });
+  },
+});
+FlowRouter.route("/admin/services/:_id", {
+  name: 'services',
+  //triggersEnter: [ isAdminRedirect ],
+  action: (params, queryParams) => {
+    BlazeLayout.reset();
+    BlazeLayout.render("CMSLayout", {main: "CMSServicesForm"});
+  },
+});
+FlowRouter.route('/admin/weather', {
+  name: 'admin.weather',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSWeather' });
   },
 });
 // 404
