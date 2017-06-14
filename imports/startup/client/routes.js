@@ -44,6 +44,7 @@ import '../../ui/pages/services-page/services-page.js';
 import '../../ui/pages/advisories/advisories.js';
 
 
+
 // Set up all routes in the app
 // HOMEPAGE
 FlowRouter.route('/', {
@@ -178,14 +179,12 @@ FlowRouter.route('/admin/services', {
     BlazeLayout.render('CMSLayout', { main: 'CMSServices' });
   },
 });
-
 FlowRouter.route('/admin/services/add', {
   name: 'admin.services-add',
   action() {
     BlazeLayout.render('CMSLayout', { main: 'CMSServicesForm' });
   },
 });
-
 FlowRouter.route("/admin/services/:_id", {
   name: 'services',
   //triggersEnter: [ isAdminRedirect ],
