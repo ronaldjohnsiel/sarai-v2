@@ -135,6 +135,7 @@ Template.CMSServicesEditForm.helpers({
     }
   },
 
+<<<<<<< b8fc0db8b4aba9a165aab82471dae470bca97443
   serviceTitle: () => {
     if(this.action == 'add'){
       return 'Add Service'
@@ -148,6 +149,13 @@ Template.CMSServicesEditForm.helpers({
   //     $('#cms-service-col1text-editor').code(Template.instance().data.service.col1.content);
   //   }
   // },
+=======
+  col1Text: () => {
+    if (Template.instance().data.service) {
+      $('#cms-service-col1text-editor').code(Template.instance().data.service.col1.content);
+    }
+  },
+>>>>>>> Added functionality in Header Options
 
   col2Text: () => {
     if (Template.instance().data.service) {
