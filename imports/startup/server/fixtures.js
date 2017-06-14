@@ -8376,12 +8376,11 @@ Meteor.startup(() => {
       rank: 4,
       image: 'https://geneticliteracyproject.org/wp-content/uploads/2016/07/n-fix-crops.jpg',
     },
-
   ];
     data.forEach(slide => Slides.insert(slide));
   }
 
-  if (Projects.find().count() == 0) {
+  if (Services.find().count() == 0) {
   const data = [
     {
       name: 'suitability-maps',
