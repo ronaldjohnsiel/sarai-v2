@@ -15,6 +15,7 @@ Template.CMSServicesEditForm.onCreated(() => {
 Template.CMSServicesEditForm.onRendered((a, template) => {
   console.log(Template.instance().data) // the service in data is undefined at this point. weird
   console.log(this)
+
   $('#cms-service-col1text-editor').summernote();
   $('#cms-service-col2text-editor').summernote();
 
@@ -133,17 +134,17 @@ Template.CMSServicesEditForm.helpers({
     }
   },
 
-  // col1Text: () => {
-  //   if (Template.instance().data.service) {
-  //     $('#cms-service-col1text-editor').code(Template.instance().data.service.col1.content);
-  //   }
-  // },
+  col1Text: () => {
+    if (Template.instance().data.service) {
+      $('#cms-service-col1text-editor').code(Template.instance().data.service.col1.content);
+    }
+  },
 
-  // col2Text: () => {
-  //   if (Template.instance().data.service) {
-  //     $('#cms-service-col2text-editor').code(Template.instance().data.service.col2.content);
-  //   }
-  // },
+  col2Text: () => {
+    if (Template.instance().data.service) {
+      $('#cms-service-col2text-editor').code(Template.instance().data.service.col2.content);
+    }
+  },
 
   mediaLinkInputTitle: () => {
     if ($('#media-image-choice').is(':checked')) {

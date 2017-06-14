@@ -427,11 +427,12 @@ Meteor.startup(() => {
       rank: 4,
       image: 'https://geneticliteracyproject.org/wp-content/uploads/2016/07/n-fix-crops.jpg',
     },
+
   ];
     data.forEach(slide => Slides.insert(slide));
   }
 
-  if (Projects.find().count() == 0) {
+  if (Services.find().count() == 0) {
   const data = [
     {
       name: 'suitability-maps',
@@ -517,14 +518,30 @@ Meteor.startup(() => {
     {
       url: '#',
       title: 'Integrated Crop Management # 4',
-      subtitle: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
-      text1: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
-      text2: 'Nutrient Management is a vital process in farming. It pertains...',
-      text3: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
-      image: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    },
+    {
+      url: '#',
+      title: 'Integrated Crop Management # 5',
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     }
-  ]
-    data.forEach(project => Projects.insert(project));
+  ];
+    data.forEach(project => Services.insert(project));
+
   }
 
   if (Logos.find().count() === 0) {
