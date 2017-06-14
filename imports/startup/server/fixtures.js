@@ -434,7 +434,7 @@ Meteor.startup(() => {
     data.forEach(slide => Slides.insert(slide));
   }
 
-  if (Projects.find().count() == 0) {
+  if (Services.find().count() == 0) {
   const data = [
     {
       url: '#',
