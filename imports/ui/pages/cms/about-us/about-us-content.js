@@ -17,7 +17,7 @@ Template.CMSAboutUsContent.events({
     const title = $("#cms-about-us-content-title").val()
     const content = $("#cms-about-us-content-text").val()
 
-    Meteor.call('cms-about-us-content-update', title, description, (error, result) => {
+    Meteor.call('cms-about-us-content-update', title, content, (error, result) => {
       let toast = 'Unable to save changes'
       if (error) { } else {
         toast = 'Saved changes to About Us Content'

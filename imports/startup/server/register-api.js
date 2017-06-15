@@ -17,3 +17,6 @@ import '../../api/projects/server/publications.js';
 
 import '../../api/services/methods.js';
 import '../../api/services/server/publications.js';
+
+import '../../api/about/methods.js';
+import '../../api/about/server/publications.js';

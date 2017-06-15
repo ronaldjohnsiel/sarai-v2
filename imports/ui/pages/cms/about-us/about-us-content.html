@@ -1,6 +1,6 @@
 <template name="CMSAboutUsContent">
-  <div class="cms-block-header">
-    Our Story
+  <div class="cms-block-header" align="center">
+    <h1> Our Story </h1>
   </div>
 
   <div align="center">
@@ -14,17 +14,17 @@
       </div>
     </div>
     <br />
-    <div {{cmsBlockContentRowClasses}}>
+    <div>
       <div id="cms-about-us-content-text-div">
         <label> Content </label>
         <br />
-        <textarea type="text" rows= "7" id="cms-about-us-content-text" value="{{content}}"></textarea>
+        <textarea type="text" rows= "7" cols="120" id="cms-about-us-content-text" value="{{content}}"></textarea>
       </div>
     </div>
   </div>
 
-   <div class="cms-block-actions">
-      <button id="cms-about-us-content-save" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+   <div class="cms-block-actions" align="center">
+      <button id="cms-about-us-content-save" class="btn-success">
         Save
       </button>
     </div>

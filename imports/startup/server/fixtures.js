@@ -7,6 +7,7 @@ import { Logos } from '../../api/logos/logos.js';
 import { Story } from '../../api/story/story.js';
 import { Projects } from '../../api/projects/projects.js';
 import { Services } from '../../api/services/services.js';
+import { About } from '../../api/about/about.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
@@ -309,6 +310,43 @@ Meteor.startup(() => {
     data.forEach(logo => Story.insert(logo));
   }
 
+  if (About.find().count() === 0) {
+    const data = [
+      {
+        name: 'title',
+        text: 'About Us',
+      },
+      {
+        name: 'leaders',
+        title: 'Project Leaders',
+        list: [
+          {
+            leaderName: 'Dr. Ma. Victoria O. Espaldon',
+            position: 'Program Leader'
+          },
+          {
+            leaderName: 'Dr. Felino P. Lansigan',
+            position: 'Project 1 Leader'
+          },
+          {
+            leaderName: 'Dr. Artemio M. Salazar',
+            position: 'Project 2 Leader'
+          },
+          {
+            leaderName: 'Prof. Concepcion L. Khan',
+            position: 'Project 3 Leader'
+          },
+          {
+            leaderName: 'Dr. Decibel V. Faustino-Eslava',
+            position: 'Project 4 Leader'
+          }
+        ]
+      },
+    ];
+
+    data.forEach(logo => About.insert(logo));
+  }
+
   if (Projects.find().count() === 0) {
     const data = [
       {
@@ -395,16 +433,6 @@ Meteor.startup(() => {
     ];
 
     data.forEach(logo => Logos.insert(logo));
-  }
-
-  if (Story.find().count() === 0) {
-    const data = [
-      {
-        content: 'So here’s a story of how the team came up with SARAi. It did not come easy, just as how other ideas did not come over night, the team had to go through to numerous discussions and brainstorming sessions before they reach the eureka moment. Sarai was Abraham’s wife, and she was the first character in the Bible who was said to be barren. But then later on, God chose them to be the forefathers of the nation of Israel.\nIt was a miracle, of how Sarai was able to conceive. So the team thought it apt to adopt the name, thus the name Project SARAi came about. Project SARAi hopes to bring about development in our agriculture sector by providing our farmers with smarter options. Also, Project SARAi hopes to help in making a more resilient and a more proactive agriculture sector by using state-of-the-art technologies, and providing near real-time crop advisories.\nIt is a long work in progress, but with the sustained partnership with different State Universities and Colleges (SUCs) nationwide, different government agencies, and other institutions, the solutions are well along the way to reaching the farmers and other stakeholders.',
-      },
-    ];
-
-    data.forEach(logo => Story.insert(logo));
   }
 
   if (Projects.find().count() === 0) {

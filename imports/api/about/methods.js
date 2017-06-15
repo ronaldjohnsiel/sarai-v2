@@ -2,25 +2,25 @@
 
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { Story } from './story.js';
+import { About } from './about.js';
 
 Meteor.methods({
-  'story.insert': (content) => {
+  'about.insert': (content) => {
     check(content, String);
 
-    return Story.insert({
-      content,
+    return About.insert({
+      name,
+      text,
       createdAt: new Date(),
     });
   },
 
-  'cms-about-us-content-update': (title, content) => {
-    Story.update(
-      { name: 'origin' },
+  'cms-about-us-title-update': (text) => {
+    About.update(
+      { name: 'title' },
       {
         $set : {
-          title,
-          content
+          text
         }
       },
       { upsert: true }
