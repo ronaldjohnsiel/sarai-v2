@@ -558,7 +558,6 @@ Meteor.startup(() => {
 
     data.forEach(entry => Advisories.insert(entry));
   }
-
   if (About.find().count() === 0) {
     const data = [
       {
