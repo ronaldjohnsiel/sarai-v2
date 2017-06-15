@@ -7,7 +7,11 @@ import { Logos } from '../../api/logos/logos.js';
 import { Story } from '../../api/story/story.js';
 import { Projects } from '../../api/projects/projects.js';
 import { Services } from '../../api/services/services.js';
+<<<<<<< 0d2f3528ab086f06f68bcb3c6fad2d8068378a8b
 import { Crops } from '../../api/crops/crops.js';
+=======
+import { About } from '../../api/about/about.js';
+>>>>>>> working crud in certain pages
 
 Meteor.startup(() => {
   // if the Links collection is empty
@@ -316,6 +320,43 @@ Meteor.startup(() => {
     ];
 
     data.forEach(logo => Story.insert(logo));
+  }
+
+  if (About.find().count() === 0) {
+    const data = [
+      {
+        name: 'title',
+        text: 'About Us',
+      },
+      {
+        name: 'leaders',
+        title: 'Project Leaders',
+        list: [
+          {
+            leaderName: 'Dr. Ma. Victoria O. Espaldon',
+            position: 'Program Leader'
+          },
+          {
+            leaderName: 'Dr. Felino P. Lansigan',
+            position: 'Project 1 Leader'
+          },
+          {
+            leaderName: 'Dr. Artemio M. Salazar',
+            position: 'Project 2 Leader'
+          },
+          {
+            leaderName: 'Prof. Concepcion L. Khan',
+            position: 'Project 3 Leader'
+          },
+          {
+            leaderName: 'Dr. Decibel V. Faustino-Eslava',
+            position: 'Project 4 Leader'
+          }
+        ]
+      },
+    ];
+
+    data.forEach(logo => About.insert(logo));
   }
 
   if (Projects.find().count() === 0) {
