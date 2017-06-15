@@ -11,6 +11,7 @@ import { Crops } from '../../api/crops/crops.js';
 import { About } from '../../api/about/about.js';
 import { Advisories } from '../../api/advisories/advisories.js';
 
+
 Meteor.startup(() => {
   // if the Links collection is empty
   if (Links.find().count() === 0) {

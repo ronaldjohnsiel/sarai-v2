@@ -150,7 +150,6 @@ FlowRouter.route('/admin/about-us-content', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsContent' });
   },
 });
-
 FlowRouter.route('/admin/about-us-title', {
   name: 'admin.about-us-title',
   action() {
@@ -164,14 +163,12 @@ FlowRouter.route('/admin/about-us-partners', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsPartners' });
   },
 });
-
 FlowRouter.route('/admin/about-us-leaders', {
   name: 'admin.about-us-leaders',
   action() {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsLeaders' });
   },
 });
-
 FlowRouter.route('/admin/services', {
   name: 'admin.services',
   action() {
