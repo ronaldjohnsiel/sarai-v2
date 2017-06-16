@@ -156,7 +156,6 @@ FlowRouter.route('/admin/about-us-title', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsTitle' });
   },
 });
-
 FlowRouter.route('/admin/about-us-partners', {
   name: 'admin.about-us-partners',
   action() {
