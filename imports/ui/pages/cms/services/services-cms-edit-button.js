@@ -9,7 +9,6 @@ Template.CMSServicesEditButton.events({
 
   'click .cms-service-edit': (event, template) => {
     Session.set('serviceAction', 'edit');
-
     var id = template.data.id;
 
     FlowRouter.go('/admin/services/'+id);

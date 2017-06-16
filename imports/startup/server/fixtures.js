@@ -160,6 +160,7 @@ Meteor.startup(() => {
             },
           ],
         };
+
     Links.insert(data);
   }
 
@@ -295,7 +296,6 @@ Meteor.startup(() => {
         url: 'http://www.uplb.edu.ph/',
       },
     ];
-
     data.forEach(logo => Logos.insert(logo));
   }
   if (Story.find().count() === 0) {
