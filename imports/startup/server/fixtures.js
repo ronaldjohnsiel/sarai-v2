@@ -15,7 +15,6 @@ import { Main } from '../../api/main/main.js';
 import { DSSSettings } from '../../api/weather/sarai-dss-settings.js';
 import { WeatherStations } from '../../api/weather/sarai-weather-stations.js';
 
-
 Meteor.startup(() => {
   // if the Links collection is empty
   if (Meteor.users.find().fetch().length === 0) {
