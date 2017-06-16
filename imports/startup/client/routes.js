@@ -19,6 +19,7 @@ import '../../ui/pages/cms/cms.js';
 import '../../ui/pages/cms/cms-home/cms-home.js';
 import '../../ui/pages/cms/about-us/about-us-content.js';
 import '../../ui/pages/cms/about-us/about-us-title.js';
+import '../../ui/pages/cms/about-us/about-us-partners.js';
 import '../../ui/pages/cms/about-us/about-us-leaders.js';
 import '../../ui/pages/cms/services/services.js';
 import '../../ui/pages/cms/main/main.js';
@@ -135,6 +136,12 @@ FlowRouter.route('/admin/about-us-title', {
   name: 'admin.about-us-title',
   action() {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsTitle' });
+  },
+});
+FlowRouter.route('/admin/about-us-partners', {
+  name: 'admin.about-us-partners',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsPartners' });
   },
 });
 FlowRouter.route('/admin/about-us-leaders', {
