@@ -25,5 +25,27 @@ Meteor.methods({
       },
       { upsert: true }
     )
-  }
+  },
+  'cms-about-us-leaders-update': (list) => {
+    About.update(
+      { name: 'leaders' },
+      {
+        $set : {
+          list
+        }
+      },
+      { upsert: true }
+    );
+  },
+  'cms-about-us-leaders-title-update': (title) => {
+    About.update(
+      { name: 'leaders' },
+      {
+        $set : {
+          title: title
+        }
+      },
+      { upsert: true }
+    );
+  },
 });

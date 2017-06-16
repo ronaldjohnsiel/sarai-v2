@@ -9,6 +9,32 @@ Template.CMSAboutUsLeaders.onCreated(() => {
 });
 
 Template.CMSAboutUsLeaders.onRendered(() => {
+  const dialog = document.querySelector('#cms-about-us-title-dialog');
+
+  dialog.querySelector('.save').addEventListener('click', () => {
+    const record = About.findOne({name: 'leaders'});
+    const index = Session.get('id');
+    if(record){
+      const leaderName = $('#cms-about-us-leader-name-input').val();
+      const position = $('#cms-about-us-leader-position-input').val();
+    
+      const newLink = { leaderName, position };
+
+      record.list[index].leaderName = newLink.leaderName;
+      record.list[index].position = newLink.position;
+
+      Meteor.call('cms-about-us-leaders-update', record.list, (error, result) => {
+        let toast = 'Saved Link'
+        if (error) {
+          toast = 'Unable to save changes'
+        }
+
+        //dialog.close();
+        //showToast(toast)
+      });
+    }
+  });
+
   $("#cms-about-us-leaders-title-div").addClass("is-dirty");
 })
 
@@ -16,6 +42,7 @@ Template.CMSAboutUsLeaders.events({
   'click .cms-about-us-leaders-edit': (e) => {
 
     const id = e.currentTarget.id
+    Session.set('id', id)
 
     const index = id;
     const record = About.findOne({name: 'leaders'})
@@ -38,13 +65,13 @@ Template.CMSAboutUsLeaders.events({
   'click #cms-about-us-leaders-save': () => {
     const title = $("#cms-about-us-leaders-title").val()
 
-    Meteor.call('cms-about-us-leaders-update', title, author1, subtext1, author2, subtext2, author3, subtext3, author4, subtext4, author5, subtext5, (error, result) => {
+    Meteor.call('cms-about-us-leaders-title-update', title, (error, result) => {
       let toast = 'Unable to save changes'
       if (error) { } else {
         toast = 'Saved changes to About Us Project Leaders'
       }
 
-      showToast(toast)
+      //showToast(toast)
     })
   }
 })
@@ -76,6 +103,6 @@ Template.CMSAboutUsLeaders.helpers({
   save: () => {
     const title = $("#cms-about-us-leaders-title").val()
 
-    Meteor.call('cms-about-us-leaders-update', title, author1, subtext1, author2, subtext2, author3, subtext3, author4, subtext4, author5, subtext5)
+    Meteor.call('cms-about-us-leaders-title-update', title)
   }
 })
