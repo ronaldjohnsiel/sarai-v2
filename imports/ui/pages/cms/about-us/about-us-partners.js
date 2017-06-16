@@ -1,5 +1,9 @@
 import './about-us-partners.html';
 
+import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
+import { About } from '../../../../api/about/about.js';
+
 Template.CMSAboutUsPartners.onRendered(() => {
 
   $("#cms-about-us-partners-title-div").addClass("is-dirty");
