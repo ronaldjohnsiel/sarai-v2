@@ -7969,7 +7969,7 @@ Meteor.startup(() => {
       thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
     }
   ];
-    data.forEach(project => Services.insert(project));
+    data.forEach(services => Services.insert(services));
   }
 
   if (Logos.find().count() === 0) {
