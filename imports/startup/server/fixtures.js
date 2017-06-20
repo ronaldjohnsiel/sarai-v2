@@ -5390,7 +5390,6 @@ Meteor.startup(() => {
       value: '9470644e92f975d3'
     });
   }
-
   if (Main.find().count() === 0) {
     const data = 
       [
