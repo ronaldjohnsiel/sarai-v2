@@ -1418,6 +1418,136 @@ Meteor.startup(() => {
       data.forEach(entry => Main.insert(entry));
   }
 
+  if (Main.find().count() === 0) {
+    const data = 
+      [
+        {
+          name: 'mainHeader',
+          img: '/header_green.png',
+          links: [
+            {
+              name: 'Home',
+              href: '/',
+              links: [],
+              id: 'home-link',
+              withsublinks: false,
+              rank: 1
+            },
+            {
+              name: 'About Us',
+              href: '/about-us',
+              links: [],
+              id: 'about-us-link',
+              withsublinks: false,
+              rank: 2
+            },
+            {
+              name: 'Explore',
+              href: '',
+              links: [
+                {
+                  name: 'Suitability Maps',
+                  href: 'http://sarai.ph:8080/',
+                  rank: 1
+                },
+                {
+                  name: 'Weather Monitoring',
+                  href: '/weather-monitoring',
+                  rank: 2
+                },
+                {
+                  name: 'Accumulated Rainfall',
+                  href: '/accumulated-rainfall',
+                  rank: 2
+                },
+                {
+                  name: 'Crop Production Area',
+                  href: '/crop-production-area',
+                  rank: 3
+                },
+                {
+                  name: 'Normalized Difference Vegetation Index (NDVI)',
+                  href: '/ndvi',
+                  rank: 4
+                },
+                {
+                  name: 'Rainfall',
+                  href: '/rainfall',
+                  rank: 5
+                },
+                {
+                  name: 'Open Data',
+                  href: 'opendata.sarai.ph',
+                  rank: 6
+                }
+              ],
+              id: 'explore-link',
+              withsublinks: true,
+              rank: 3
+            },
+            {
+              name: 'Planning Dates',
+              href: '',
+              links: [],
+              id: 'planning-dates-link',
+              withsublinks: false,
+              rank: 4
+            },
+            {
+              name: 'DSS',
+              href: '',
+              links: [
+                {
+                  name: 'Corn Nutrient Expert',
+                  href: '/dss/corn-nutrient-expert',
+                  rank: 1
+                }
+              ],
+              id: 'dss-link',
+              withsublinks: true,
+              rank: 5
+            },
+            {
+              name: 'Get Involved',
+              href: '',
+              links: [
+                {
+                  name: 'Contact Us',
+                  href: '/get-involved/contact',
+                  rank: 1
+                },
+                {
+                  name: 'Submit a Story',
+                  href: '/get-involved/contact',
+                  rank: 2
+                },
+                {
+                  name: 'Join the Discussion',
+                  href: 'https://groups.google.com/forum/#!forum/project-sarai-knowledge-hub',
+                  rank: 3
+                }
+              ],
+              id: 'get-involved-link',
+              withsublinks: true,
+              rank: 6
+            }
+          ],
+          buttonText: 'BETA',
+          buttonEnabled: true,
+          enabled: true
+        },
+        {
+          name: 'topHeader',
+          message: 'ENSO-Neutral Condition',
+          href: 'http://www.pagasa.dost.gov.ph/index.php/climate/climate-advisories',
+          searchText: 'How can we help you?',
+          enabled: true
+        },
+      ];
+
+      data.forEach(entry => Main.insert(entry));
+  }
+
   if (Slides.find().count() === 0) {
   const data = [
     {
