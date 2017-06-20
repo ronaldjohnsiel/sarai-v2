@@ -25,6 +25,9 @@ import '../../ui/pages/cms/about-us/about-us-projects.js';
 import '../../ui/pages/cms/about-us/about-us-banner.js';
 import '../../ui/pages/cms/services/services.js';
 import '../../ui/pages/cms/main/main.js';
+import '../../ui/pages/cms/main/banner-options.js';
+import '../../ui/pages/cms/main/download-forecast.js';
+import '../../ui/pages/cms/main/top-header-options.js';
 import '../../ui/pages/cms/weather/weather.js';
 import '../../ui/pages/cms/main/header-options.js';
 import '../../ui/pages/cms/services/services-cms-form.js';
@@ -143,7 +146,19 @@ FlowRouter.route('/admin/main-header', {
 FlowRouter.route('/admin/main-banner', {
   name: 'admin.main-banner',
   action() {
-    BlazeLayout.render('CMSLayout', { main: 'BannerOptions' });
+    BlazeLayout.render('CMSLayout', { main: 'CMSBannerOptions' });
+  },
+});
+FlowRouter.route('/admin/main-download-forecast', {
+  name: 'admin.main-download-forecast',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'DownloadForecast' });
+  },
+});
+FlowRouter.route('/admin/main-top-header', {
+  name: 'admin.main-top-header',
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'TopHeaderOptions' });
   },
 });
 FlowRouter.route('/admin/about-us-content', {
