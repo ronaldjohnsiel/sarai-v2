@@ -55,7 +55,6 @@ Template.CMSBannerOptions.onRendered(() => {
         showToast(toast)
       })
     }
-
 //    dialog.close();
   })
 })
