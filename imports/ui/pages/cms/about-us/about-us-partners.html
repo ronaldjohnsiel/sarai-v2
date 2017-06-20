@@ -6,14 +6,14 @@
         Partner Institutions
       </div>
       <div>
-        <div {{cmsBlockContentRowClasses}} class="row">
+        <div class="row">
           <div id="cms-about-us-partners-title-div" class="col-xs-6">
             <label for="cms-about-us-partners-title">Title</label>
             <br>
             <input class="form-control" type="text" id="cms-about-us-partners-title" value="{{partners.title1}}">
           </div>
         </div>
-        <div {{cmsBlockContentRowClasses}}>
+        <div >
           <h6> Partner Institutions </h6>
           <div class="row">
             <div id="cms-about-us-partners1-name-div" class="col-xs-6">
@@ -83,30 +83,38 @@
             </div>
           </div>
           <p>Write here the html code:</p>
-          <div id="cms-about-us-partners3-description-div">
-            <label for="cms-about-us-partners3-description">Description</label>
-            <br>
-            <textarea type="text" rows= "2" id="cms-about-us-partners3-description" value="{{partners.description33}}"></textarea>
+          <div class="row">
+            <div id="cms-about-us-partners3-description-div" class="col-xs-6">
+              <label for="cms-about-us-partners3-description">Description</label>
+              <br>
+              <textarea class="form-control" type="text" rows= "2" id="cms-about-us-partners3-description" value="{{partners.description33}}"></textarea>
+            </div>
           </div>
         </div>
 
         <div {{cmsBlockContentRowClasses}}>
-          <div id="cms-about-us-partners4-name-div">
-            <label for="cms-about-us-partners4-name">Name</label>
-            <br>
-            <input type="text" id="cms-about-us-partners4-name" value="{{partners.text44}}">
+          <div class="row">
+            <div id="cms-about-us-partners4-name-div" class="col-xs-6">
+              <label for="cms-about-us-partners4-name">Name</label>
+              <br>
+              <input class="form-control" type="text" id="cms-about-us-partners4-name" value="{{partners.text44}}">
+            </div>
           </div>
           <p>Write here the html code:</p>
-          <div id="cms-about-us-partners4-text-div">
-            <label for="cms-about-us-partners4-text">Text</label>
-            <br>
-            <textarea type="text" rows= "2" id="cms-about-us-partners4-text" value="{{partners.subtext44}}"></textarea>
+           <div class="row"> 
+            <div id="cms-about-us-partners4-text-div" class="col-xs-6">
+              <label for="cms-about-us-partners4-text">Text</label>
+              <br>
+              <textarea class="form-control" type="text" rows= "2" id="cms-about-us-partners4-text" value="{{partners.subtext44}}"></textarea>
+            </div>
           </div>
           <p>Write here the html code:</p>
-          <div id="cms-about-us-partners4-description-div">
-            <label for="cms-about-us-partners4-description">Description</label>
-            <br>
-            <textarea type="text" rows= "2" id="cms-about-us-partners4-description" value="{{partners.description44}}"></textarea>
+          <div class="row">
+            <div id="cms-about-us-partners4-description-div" class="col-xs-6">
+              <label for="cms-about-us-partners4-description">Description</label>
+              <br>
+              <textarea class="form-control" type="text" rows= "2" id="cms-about-us-partners4-description" value="{{partners.description44}}"></textarea>
+            </div>
           </div>
         </div>
 
@@ -114,7 +122,8 @@
 
 
       <div class="cms-block-actions">
-        <button id="cms-about-us-partners-save">
+        <br>
+        <button id="cms-about-us-partners-save" class="btn-success">
           Save
         </button>
       </div>
@@ -122,8 +131,8 @@
     </div>
   </div>
 
-  <div id="cms-toast" class="mdl-js-snackbar mdl-snackbar">
+  <!-- <div id="cms-toast" class="mdl-js-snackbar mdl-snackbar">
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
-  </div>
+  </div> -->
 </template>
