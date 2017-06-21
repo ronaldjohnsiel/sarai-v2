@@ -2,10 +2,9 @@ import './top-header-options.html';
 import { Meteor } from 'meteor/meteor';
 import { Main } from '../../../../api/main/main.js';
 
-Template.TopHeaderOptions.onCreated(function() {
+Template.TopHeaderOptions.onCreated(() => {
   Meteor.subscribe('main');
-  //const handle = Meteor.subscribe('main', 'topHeader');
-})
+});
 
 Template.TopHeaderOptions.onRendered(() => {
   $("#cms-top-header-message-div").addClass("is-dirty");

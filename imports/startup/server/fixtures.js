@@ -11,6 +11,9 @@ import { Crops } from '../../api/crops/crops.js';
 import { About } from '../../api/about/about.js';
 import { Advisories } from '../../api/advisories/advisories.js';
 import { Main } from '../../api/main/main.js';
+import { Reports } from '../../api/reports/reports.js';
+import { DSSSettings } from '../../api/weather/sarai-dss-settings.js';
+import { WeatherStations } from '../../api/weather/sarai-weather-stations.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
@@ -19,150 +22,171 @@ Meteor.startup(() => {
       {
         title: 'mainHeader',
         links: [
-          {
-            title: 'SARAi',
-            url: '/about',
-            links: [],
-            rank: '1',
-            createdAt: new Date(),
-          },
-          {
-            title: 'Crops',
-            url: '',
-            rank: '2',
-            links: [
-              {
-                title: 'Rice',
-                url: '/crops/rice',
-                rank: '1',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Corn',
-                url: '/crops/corn',
-                rank: '2',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Banana',
-                url: '/crops/banana',
-                rank: '3',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Coconut',
-                url: '/crops/coconut',
-                rank: '4',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Coffee',
-                url: '/crops/coffee',
-                rank: '5',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Cacao',
-                url: '/crops/cacao',
-                rank: '6',
-                createdAt: new Date(),
-              },
-            ],
-            createdAt: new Date(),
-          },
-          {
-            title: 'Maps',
-            url: '',
-            rank: '3',
-            links: [
-              {
-                title: 'Suitability Maps',
-                url: 'http://maps.sarai.ph/suitability-maps',
-                rank: '1',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Crop Production Area',
-                url: 'http://maps.sarai.ph/crop-production-area',
-                rank: '2',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Normalized Difference Vegetation Index (NDVI)',
-                url: 'http://maps.sarai.ph/ndvi',
-                rank: '3',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Rainfall Map',
-                url: 'http://maps.sarai.ph/rainfall-maps',
-                rank: '4',
-                createdAt: new Date(),
-              },
-            ],
-            createdAt: new Date(),
-          },
-          {
-            title: 'Services',
-            url: '',
-            rank: '4',
-            links: [
-              {
-                title: 'Alerts and Advisories',
-                url: 'http://sarai.ph/advisories',
-                rank: '1',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Monitoring',
-                url: 'http://sarai.ph/weather-monitoring',
-                rank: '2',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Planting Guide',
-                url: 'http://sarai.ph/rainfall-distribution',
-                rank: '3',
-                createdAt: new Date(),
-              },
-              {
-                title: 'SPIDTech',
-                url: 'http://pests.sarai.ph/',
-                rank: '4',
-                createdAt: new Date(),
-              },
-              {
-                title: 'Open Data',
-                url: 'http://opendata.sarai.ph/',
-                rank: '5',
-                createdAt: new Date(),
-              },
-              {
-                title: 'SARAi Eskwela',
-                url: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319',
-                rank: '6',
-                createdAt: new Date(),
-              },
-            ],
-            createdAt: new Date(),
-          },
-          {
-            title: 'Contact Us',
-            url: '',
-            rank: '5',
-            links: [
-              {
-                title: 'Subscribe',
-                url: 'https://goo.gl/forms/i4jW7LshCSQpuyZ23',
-                rank: '1',
-                createdAt: new Date(),
-              },
-            ],
-            createdAt: new Date(),
-          },
-        ],
-      };
+            {
+              title: 'SARAi',
+              url: '/about',
+              links: [],
+              rank: '1',
+              createdAt: new Date(),
+            },
+            {
+              title: 'Crops',
+              url: '',
+              rank: '2',
+              links: [
+                {
+                  title: 'Rice',
+                  url: '/crops/rice',
+                  rank: '1',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Corn',
+                  url: '/crops/corn',
+                  rank: '2',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Banana',
+                  url: '/crops/banana',
+                  rank: '3',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Coconut',
+                  url: '/crops/coconut',
+                  rank: '4',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Coffee',
+                  url: '/crops/coffee',
+                  rank: '5',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Cacao',
+                  url: '/crops/cacao',
+                  rank: '6',
+                  createdAt: new Date(),
+                },
+              ],
+              createdAt: new Date(),
+            },
+            {
+              title: 'Maps',
+              url: '',
+              rank: '3',
+              links: [
+                {
+                  title: 'Suitability Maps',
+                  url: 'http://maps.sarai.ph/suitability-maps',
+                  rank: '1',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Crop Production Area',
+                  url: 'http://maps.sarai.ph/crop-production-area',
+                  rank: '2',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Normalized Difference Vegetation Index (NDVI)',
+                  url: 'http://maps.sarai.ph/ndvi',
+                  rank: '3',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Rainfall Map',
+                  url: 'http://maps.sarai.ph/rainfall-maps',
+                  rank: '4',
+                  createdAt: new Date(),
+                },
+              ],
+              createdAt: new Date(),
+            },
+            {
+              title: 'Services',
+              url: '',
+              rank: '4',
+              links: [
+                {
+                  title: 'Alerts and Advisories',
+                  url: 'http://sarai.ph/advisories',
+                  rank: '1',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Monitoring',
+                  url: 'http://sarai.ph/weather-monitoring',
+                  rank: '2',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Planting Guide',
+                  url: 'http://sarai.ph/rainfall-distribution',
+                  rank: '3',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'SPIDTech',
+                  url: 'http://pests.sarai.ph/',
+                  rank: '4',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'Open Data',
+                  url: 'http://opendata.sarai.ph/',
+                  rank: '5',
+                  createdAt: new Date(),
+                },
+                {
+                  title: 'SARAi Eskwela',
+                  url: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319',
+                  rank: '6',
+                  createdAt: new Date(),
+                },
+              ],
+              createdAt: new Date(),
+            },
+            {
+              title: 'Contact Us',
+              url: '',
+              rank: '5',
+              links: [
+                {
+                  title: 'Subscribe',
+                  url: 'https://goo.gl/forms/i4jW7LshCSQpuyZ23',
+                  rank: '1',
+                  createdAt: new Date(),
+                },
+              ],
+              createdAt: new Date(),
+            },
+          ],
+          buttonEnabled: true,
+        };
     Links.insert(data);
+  }
+
+  if (WeatherStations.find().count() === 0) {
+    WeatherStations.insert({ id : 'IBICOLGU2', label : 'SARAI BUCAF Guinobatan Albay (UPLB)', coords : [ 13.193, 123.595 ], group : 'SARAI', enabled: true, region: 'V' })
+    WeatherStations.insert({ id : 'IWESTERN596', label : 'SARAI La Granja La Carlota City, Negros Occidental (UPLB), La Carlota City', coords : [ 10.404931, 122.978889 ], group : 'SARAI', enabled: true, region: 'IV-A' })
+    WeatherStations.insert({ id : 'ICALABAR25', label : 'SARAI DA-QAES Tiaong, Quezon (UPLB), Tiaong', coords : [ 13.944949, 121.369759 ], group : 'SARAI', enabled: true, region: 'IV-A' })
+    WeatherStations.insert({ id : 'ICENTRAL91', label : 'SARAI CLSU Science City of Munoz, Nueva Ecija, Science City Of Muñoz', coords : [ 15.738162, 120.928391   ], group : 'SARAI', enabled: true, region: 'III' })
+    WeatherStations.insert({ id : 'IWESTERN635', label : 'SARAI WVSU Lambunao, Iloilo (UPLB)', coords : [ 11.102, 122.415 ], group : 'SARAI', enabled: true, region: 'VI' })
+    WeatherStations.insert({ id : 'ICALABAR18', label : 'SARAI IPB, Laguna (UPLB), Los Baños', coords : [ 14.156224, 121.262199 ], group : 'SARAI', enabled: true, region: 'IV-A' })
+    WeatherStations.insert({ id : 'IMIMAROP6', label : 'SARAI WPU Aborlan Palawan (UPLB)', coords : [ 9.45, 118.554 ], group : 'SARAI', enabled: true, region: 'IV-B' })
+    WeatherStations.insert({ id : 'ICAGAYAN3', label : 'SARAI ISU Cabagan, Isabela (UPLB), Cabagan', coords : [ 17.410467, 121.813698 ], group : 'SARAI', enabled: true, region: 'II' })
+    WeatherStations.insert({ id : 'ICAGAYAN2', label : 'SARAI ISU Echague, Isabela (UPLB) ', coords : [ 16.726, 121.699 ], group : 'SARAI', enabled: true, region: 'II' })
+    WeatherStations.insert({ id : 'ICENTRAL94', label : 'SARAI CTU Barili Cebu (UPLB)', coords : [ 10.133, 123.547 ], group : 'SARAI', enabled: true, region: 'III' })
+  }
+
+  if (!DSSSettings.findOne({name: 'wunderground-api-key'})) {
+    DSSSettings.insert({
+      name: 'wunderground-api-key',
+      value: '9470644e92f975d3'
+    });
   }
 
   if (Main.find().count() === 0) {
@@ -290,6 +314,76 @@ Meteor.startup(() => {
           searchText: 'How can we help you?',
           enabled: true
         },
+        {
+          name: 'banner',
+          slides: [
+            {
+              image: '/img/homepage-slider/Project-SARAI.png',
+              textPosition: 'left',
+              title: 'PROJECT SARAI',
+              subTitle: 'Smarter Farmers, Smarter Agriculture.',
+              text: 'Search through the different SARAI technologies and systems to what, when, and where to plant',
+              buttonText: 'MORE',
+              buttonLink: ''
+            },
+            {
+              image : '/img/homepage-slider/Knowledge-Portal.png',
+              textPosition : 'left',
+              title : 'SARAi KNOWLEDGE PORTAL',
+              subTitle : 'One-stop-shop for crop monitoring and forecasting',
+              text : 'Get comprehensive national, regional, and municipal data to know what, where, and, when to plant.',
+              buttonText : 'EXPLORE',
+              buttonLink : '#main-preview',
+              rank : ''
+            },
+            {
+              image: '/img/homepage-slider/Real-Time-Monitoring.jpg',
+              textPosition: 'right',
+              title: 'REAL-TIME WEATHER MONITORING',
+              subTitle: 'Guide your farming practices with weather data',
+              text: 'Get information on previous weather patterns and current weather conditions through historical and current weather data.',
+              buttonText: 'EXPLORE',
+              buttonLink: ''
+            },
+            {
+              image: '/img/homepage-slider/Crop-Monitoring-and-Forecasting.jpg',
+              textPosition: 'right',
+              title: 'CROP MONITORING AND FORECASTING',
+              subTitle: 'Plan your planting practices wisely for optimum yield',
+              text: 'View the 30-day cumulative rainfall data and 10-day weather forecast in your area to know the right time to plant.',
+              buttonText: 'EXPLORE',
+              buttonLink: ''
+            },
+            {
+              image: '/img/homepage-slider/Smarter-Crop-Management.jpg',
+              textPosition: 'right',
+              title: 'SMARTER CROP MANAGEMENT',
+              subTitle: 'Helping farmers to produce more with less',
+              text: 'Know the right amount of nutrient, the adequate management practices for pest and diseases, and the right amount of water for maximum yield.',
+              buttonText: 'KNOW MORE',
+              buttonLink: ''
+            },
+            {
+              image: '/img/homepage-slider/MOBILE-APP.png',
+              textPosition: 'right',
+              title: 'SARAI MOBILE APP',
+              subTitle: 'Agriculture alerts on-the-go',
+              text: 'A mobile app where users can receive alerts via push notifications to mobile devices.',
+              buttonText: 'CLICK HERE TO DOWNLOAD',
+              buttonLink: 'https://build.phonegap.com/apps/1850892/install/HNYZJ_mtp4V4uSLkgvCK'
+            },
+            {
+              image: '/img/homepage-slider/eskwela.png',
+              textPosition: 'right',
+              title: 'SARAI ESKWELA',
+              subTitle: 'Knowledge sharing for smarter agriculture',
+              text: 'Explore the training modules and information, education, and communication materials to guide you in your farming practice.',
+              buttonText: 'CLICK HERE',
+              buttonLink: ''
+            }
+          ],
+          enabled: true
+        }
       ];
 
       data.forEach(entry => Main.insert(entry));
@@ -439,6 +533,30 @@ Meteor.startup(() => {
     ];
 
     data.forEach(logo => Story.insert(logo));
+  }
+
+  if (Reports.find().count() === 0) {
+    const data = [
+      // {
+      //   title:
+      //   file:
+      //   thumbnail:
+      //   date:
+      // }
+    ];
+  }
+
+  if (Advisories.find().count() === 0){
+    const data = [
+      {
+        title: 'General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management',
+        body: 'Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao. There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable. For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.',
+        date: 'April 16, 2017'
+      }
+    ];
+
+    data.forEach(entry => Advisories.insert(entry));
   }
 
   if (About.find().count() === 0) {

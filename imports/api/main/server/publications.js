@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Story } from '../main.js';
+import { Main } from '../main.js';
 
 Meteor.publish('main', function() {
   return Main.find();
