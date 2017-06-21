@@ -9,6 +9,7 @@ import { Projects } from '../../api/projects/projects.js';
 import { Services } from '../../api/services/services.js';
 import { Crops } from '../../api/crops/crops.js';
 import { About } from '../../api/about/about.js';
+import { Advisories } from '../../api/advisories/advisories.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
@@ -17,150 +18,149 @@ Meteor.startup(() => {
       {
         title: 'mainHeader',
         links: [
-            {
-              title: 'SARAi',
-              url: '/about',
-              links: [],
-              rank: '1',
-              createdAt: new Date(),
-            },
-            {
-              title: 'Crops',
-              url: '',
-              rank: '2',
-              links: [
-                {
-                  title: 'Rice',
-                  url: '/crops/rice',
-                  rank: '1',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Corn',
-                  url: '/crops/corn',
-                  rank: '2',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Banana',
-                  url: '/crops/banana',
-                  rank: '3',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Coconut',
-                  url: '/crops/coconut',
-                  rank: '4',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Coffee',
-                  url: '/crops/coffee',
-                  rank: '5',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Cacao',
-                  url: '/crops/cacao',
-                  rank: '6',
-                  createdAt: new Date(),
-                },
-              ],
-              createdAt: new Date(),
-            },
-            {
-              title: 'Maps',
-              url: '',
-              rank: '3',
-              links: [
-                {
-                  title: 'Suitability Maps',
-                  url: 'http://maps.sarai.ph/suitability-maps',
-                  rank: '1',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Crop Production Area',
-                  url: 'http://maps.sarai.ph/crop-production-area',
-                  rank: '2',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Normalized Difference Vegetation Index (NDVI)',
-                  url: 'http://maps.sarai.ph/ndvi',
-                  rank: '3',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Rainfall Map',
-                  url: 'http://maps.sarai.ph/rainfall-maps',
-                  rank: '4',
-                  createdAt: new Date(),
-                },
-              ],
-              createdAt: new Date(),
-            },
-            {
-              title: 'Services',
-              url: '',
-              rank: '4',
-              links: [
-                {
-                  title: 'Alerts and Advisories',
-                  url: 'http://sarai.ph/advisories',
-                  rank: '1',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Monitoring',
-                  url: 'http://sarai.ph/weather-monitoring',
-                  rank: '2',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Planting Guide',
-                  url: 'http://sarai.ph/rainfall-distribution',
-                  rank: '3',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'SPIDTech',
-                  url: 'http://pests.sarai.ph/',
-                  rank: '4',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'Open Data',
-                  url: 'http://opendata.sarai.ph/',
-                  rank: '5',
-                  createdAt: new Date(),
-                },
-                {
-                  title: 'SARAi Eskwela',
-                  url: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319',
-                  rank: '6',
-                  createdAt: new Date(),
-                },
-              ],
-              createdAt: new Date(),
-            },
-            {
-              title: 'Contact Us',
-              url: '',
-              rank: '5',
-              links: [
-                {
-                  title: 'Subscribe',
-                  url: 'https://goo.gl/forms/i4jW7LshCSQpuyZ23',
-                  rank: '1',
-                  createdAt: new Date(),
-                },
-              ],
-              createdAt: new Date(),
-            },
-          ],
-        };
-
+          {
+            title: 'SARAi',
+            url: '/about',
+            links: [],
+            rank: '1',
+            createdAt: new Date(),
+          },
+          {
+            title: 'Crops',
+            url: '',
+            rank: '2',
+            links: [
+              {
+                title: 'Rice',
+                url: '/crops/rice',
+                rank: '1',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Corn',
+                url: '/crops/corn',
+                rank: '2',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Banana',
+                url: '/crops/banana',
+                rank: '3',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Coconut',
+                url: '/crops/coconut',
+                rank: '4',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Coffee',
+                url: '/crops/coffee',
+                rank: '5',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Cacao',
+                url: '/crops/cacao',
+                rank: '6',
+                createdAt: new Date(),
+              },
+            ],
+            createdAt: new Date(),
+          },
+          {
+            title: 'Maps',
+            url: '',
+            rank: '3',
+            links: [
+              {
+                title: 'Suitability Maps',
+                url: 'http://maps.sarai.ph/suitability-maps',
+                rank: '1',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Crop Production Area',
+                url: 'http://maps.sarai.ph/crop-production-area',
+                rank: '2',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Normalized Difference Vegetation Index (NDVI)',
+                url: 'http://maps.sarai.ph/ndvi',
+                rank: '3',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Rainfall Map',
+                url: 'http://maps.sarai.ph/rainfall-maps',
+                rank: '4',
+                createdAt: new Date(),
+              },
+            ],
+            createdAt: new Date(),
+          },
+          {
+            title: 'Services',
+            url: '',
+            rank: '4',
+            links: [
+              {
+                title: 'Alerts and Advisories',
+                url: 'http://sarai.ph/advisories',
+                rank: '1',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Monitoring',
+                url: 'http://sarai.ph/weather-monitoring',
+                rank: '2',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Planting Guide',
+                url: 'http://sarai.ph/rainfall-distribution',
+                rank: '3',
+                createdAt: new Date(),
+              },
+              {
+                title: 'SPIDTech',
+                url: 'http://pests.sarai.ph/',
+                rank: '4',
+                createdAt: new Date(),
+              },
+              {
+                title: 'Open Data',
+                url: 'http://opendata.sarai.ph/',
+                rank: '5',
+                createdAt: new Date(),
+              },
+              {
+                title: 'SARAi Eskwela',
+                url: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319',
+                rank: '6',
+                createdAt: new Date(),
+              },
+            ],
+            createdAt: new Date(),
+          },
+          {
+            title: 'Contact Us',
+            url: '',
+            rank: '5',
+            links: [
+              {
+                title: 'Subscribe',
+                url: 'https://goo.gl/forms/i4jW7LshCSQpuyZ23',
+                rank: '1',
+                createdAt: new Date(),
+              },
+            ],
+            createdAt: new Date(),
+          },
+        ],
+      };
     Links.insert(data);
   }
 
@@ -202,7 +202,6 @@ Meteor.startup(() => {
       rank: 4,
       image: 'https://geneticliteracyproject.org/wp-content/uploads/2016/07/n-fix-crops.jpg',
     },
-
   ];
     data.forEach(slide => Slides.insert(slide));
   }
@@ -352,56 +351,27 @@ Meteor.startup(() => {
       {
         title: 'Project 1. Model Development and Crop Forecasting',
         description: 'Project 1 aims to develop and evaluate crop models to launch a crop forecasting platform available for the entire country for the six priority crops. In order to achieve these, the project is composed of the following research areas:',
-        subDescription: [
-          'Climate risk assessment in key production areas',
-          'Validated crop models for priority crops',
-          'Integrated Crop Management System (ICMS)',
-          'Optimal nutrient management',
-          'Crop advisories on crop protection and crop forecasts',
-          'Crop early warning systems (EWS)',
-          'Adaptive planting calendar',
-          'Database, validated crop models and forecasts per crop',
-        ],
+        body: '<p><br>– Climate risk assessment in key production areas<br>– Validated crop models for priority crops<br>– Integrated Crop Management System (ICMS)<br>– Optimal nutrient management<br>– Crop advisories on crop protection and crop forecasts<br>– Crop early warning systems (EWS)<br>– Adaptive planting calendar<br>– Database, validated crop models and forecasts per crop</p>',
       },
       {
         title: 'Project 2. Environmental Characterization and Development of Integrated Crop Management',
         description: 'Project 2 aims to provide the near real-time, empirical field data as inputs to the crop models simulated by Project 1. It also aims to provide site-specific nutrient management advisories for the perennials.',
-        subDescription: [
-          'Updated land use and crop suitability maps',
-          'Real time and edaphic data from Automatic Weather Stations (AWS) and sensors',
-          'Integrated Crop Management System (ICMS)',
-          'Vulnerability Studies',
-        ],
+        body: '<p><br>– Updated land use and crop suitability maps<br>– Real time and edaphic data from Automatic Weather Stations (AWS) and sensors<br>– Integrated Crop Management System (ICMS)<br>– Vulnerability Studies<p></p></p>',
       },
       {
         title: 'Project 3. SARAi Knowledge Portal',
         description: 'Project 3 is the online infrastructure of Project SARAi which serves as the database, and the online go-to site of various stakeholders.',
-        subDescription: [
-          'Database platform for Project SARAi outputs',
-          'Crop advisories, crop forecasts, crop EWS',
-          'Information/learning tools',
-          'Planting calendar, ICM, and integrated water management IPM',
-        ],
+        body: '<p><br>– Updated land use and crop suitability maps<br>– Real time and edaphic data from Automatic Weather Stations (AWS) and sensors<br>– Integrated Crop Management System (ICMS)<br>– Vulnerability Studies<p></p></p>',
       },
       {
         title: 'Project 4: Capacity and Knowledge-Building',
         description: 'Project 4 makes sure that the system and the outputs of the research program are shared with the stakeholders through conducting technical trainings, seminars, workshops; developing training modules; and designing various IEC materials.',
-        subDescription: [
-          'Analyzed training needs',
-          'New and complementary training tools and activities',
-          'Conduct of trainings, IEC ad joint learning activities on smarter farming techniques, ICM, DSS, AWS/Sensors',
-        ],
+        body: '<p><p>– Analyzed training needs<br>– New and complementary training tools and activities<br>– Conduct of trainings, IEC ad joint learning activities on smarter farming techniques, ICM, DSS, AWS/Sensors</p></p>',
       },
       {
         title: 'Project 5: SARAi Mainstreaming',
         description: 'Project 5 is in charge of the formulation of science-based recommendations for the agricultural sector. It also makes sure that the partner SUCs are committed into contributing to the consortium, and that the relevant government agencies will take part in building and improving the system.',
-        subDescription: [
-          'Identification of policy issues and formulation of policy papers',
-          'Publication of research results',
-          'Organization of planning and scientific meetings',
-          'Establish: Crop-climate forecasting and modelling laboratory',
-          'Build consortium to ensure sustainability',
-        ],
+        body: '<p><p>– Identification of policy issues and formulation of policy papers<br>– Publication of research results<br>– Organization of planning and scientific meetings<br>– Establish: Crop-climate forecasting and modelling laboratory<br>– Build consortium to ensure sustainability</p></p>',
       },
     ];
 
@@ -444,4 +414,59 @@ Meteor.startup(() => {
 
     data.forEach(crop => Crops.insert(crop));
   }
+
+  if (Advisories.find().count() === 0) {
+    const data = [
+      {
+        date: '2017,03,02',
+        title: 'General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management, April 16, 2017',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas.</li><li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li>There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li><li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li><li>For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
+      },
+      {
+        date: '2016,03,08',
+        title: 'Situation and Outlook',
+        subtitle: '<h6>Philippine Statistics Authority Rice and Corn Situation and Outlook Report, January 2017</h6><h6>Philippine Statistics Authority Performance of Philippine Agriculture, October-December 2016</h6>',
+        body: '<p>Palay and corn production for January-December 2016 were lower than their 2015 levels. The first two quarters decrements in outputs were attributed to dry spell and drought and effects of typhoons Lando and Nona which hit the Philippines in the last quarter of 2015. The last two quarters decrements, on the other hand, were due to the movement of harvest of harvest to the third quarter 2016 and first quarter 2017 and effects of typhoons Karen and Lawin in Luzon regions.</p><div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone"><h5>Advisory</h5><p style="font-size: 1.29em; margin-top: -0.5em;">Rice</p><p style=" margin-top: -1em;">Palay production for January-December 2016 is lower than their 2015 level by 2.88%.</p><p style="font-size: 1.29em; margin-top: -0.5em;">Corn</p><p style=" margin-top: -1em;">Corn production for January-December 2016 is lower than their 2015 level by 3.99%.</p><p style="font-size: 1.29em; margin-top: -0.5em;">Other crops</p><p style=" margin-top: -1em;">In October-December 2016, production gains were noted in banana which grew by 1.57%. Output losses, on the other hand, were recorded in coconut and coffee. Coconut output decreased by 5.22% while coffee production dropped by 3.25%</p></div><div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone"><h5>Outlook</h5><p style="font-size: 1.29em; margin-top: -0.5em;">Rice</p><p style=" margin-top: -1em;">Probable production of palay crops for January-June may surpass its 2016 level by 11.68%.</p><p style="font-size: 1.29em; margin-top: -0.5em;">Corn</p><p style=" margin-top: -1em;">Probable production of corn crops for January-June may surpass its 2016 level by 29.92%.</p></div>',
+      },
+      {
+        date: '2013,03,02',
+        title: '13General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management, April 16, 2017',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas.</li><li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li>There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li><li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li><li>For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
+      },
+      {
+        date: '2017,03,02',
+        title: 'General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management, April 16, 2017',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas.</li><li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li>There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li><li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li><li>For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
+      },
+      {
+        date: '2017,03,02',
+        title: 'General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management, April 16, 2017',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas.</li><li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li>There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li><li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li><li>For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
+      },
+      {
+        date: '2014,03,02',
+        title: '14General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management, April 16, 2017',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas.</li><li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li>There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li><li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li><li>For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
+      },
+      {
+        date: '2016,03,02',
+        title: '16General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management, April 16, 2017',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas.</li><li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li>There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li><li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li><li>For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
+      },
+      {
+        date: '2017,03,02',
+        title: 'General Advisory based on Weather Forecast',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management, April 16, 2017',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas.</li><li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li>There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li><li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li><li>For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
+      },
+    ];
+
+    data.forEach(advisory => Advisories.insert(advisory));
+  }  
 });
