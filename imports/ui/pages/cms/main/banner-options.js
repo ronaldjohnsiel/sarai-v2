@@ -1,12 +1,12 @@
 import './banner-options.html';
-
+import '../common/cms-upload/cms-upload.html'
 import { Meteor } from 'meteor/meteor';
-import { Slides } from '../../../../api/slides/slides.js';
+import { Main } from '../../../../api/main/main.js';
 
 Template.CMSBannerOptions.onCreated(() => {
   this.uploadedFile = ''
   this.bannerOrder = 'ascending'
-  Meteor.subscribe('slides');
+  Meteor.subscribe('main');
 
 })
 
@@ -15,7 +15,7 @@ Template.CMSBannerOptions.onRendered(() => {
   const dialog = document.querySelector('#cms-banner-dialog')
 
   dialog.querySelector('.cancel').addEventListener('click', () => {
-    dialog.close();
+//    dialog.close();
   });
 
   dialog.querySelector('.save').addEventListener('click', () => {
@@ -56,7 +56,7 @@ Template.CMSBannerOptions.onRendered(() => {
       })
     }
 
-    dialog.close();
+//    dialog.close();
   })
 })
 
@@ -65,19 +65,21 @@ Template.CMSBannerOptions.events({
     this.action = 'add'
 
     const dialog = document.querySelector('#cms-banner-dialog');
-    dialog.showModal();
+ //   dialog.showModal();
 
     setBannerDialogContents('Add Slide', '', '', '', '', '', '', '', '')
   },
 
   'click .cms-banner-slider-edit': (e) => {
     const id = e.currentTarget.id.split('-')[2]
+    console.log(e.currentTarget.id);
+    console.log(id);
 
     this.action = 'edit'
     this.actionID = id
 
     const dialog = document.querySelector('#cms-banner-dialog');
-    dialog.showModal();
+//    dialog.showModal();
 
     const record = Main.findOne({name: 'banner'})
 
