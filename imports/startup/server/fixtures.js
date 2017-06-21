@@ -1112,6 +1112,17 @@ Meteor.startup(() => {
     data.forEach(logo => Story.insert(logo));
   }
 
+  if (Reports.find().count() === 0) {
+    const data = [
+      // {
+      //   title:
+      //   file:
+      //   thumbnail:
+      //   date:
+      // }
+    ];
+  }
+
   if (Advisories.find().count() === 0){
     const data = [
       {
