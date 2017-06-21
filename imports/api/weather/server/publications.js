@@ -5,7 +5,6 @@ import { WeatherData } from '../sarai-weather-data.js';
 import { HeatMapData } from '../sarai-heat-map-data.js';
 import { WeatherStations } from '../sarai-weather-stations.js';
 
-
 Meteor.publish('weather_stations', function() {
   return WeatherStations.find();
 });
