@@ -39,6 +39,9 @@ import '../../api/main/server/publications.js';
 import '../../api/main/methods.js';
 import '../../api/main/server/publications.js';
 
+import '../../api/main/methods.js';
+import '../../api/main/server/publications.js';
+
 import '../../api/advisories/methods.js';
 import '../../api/advisories/server/publications.js';
 
