@@ -6,4 +6,3 @@ import { Advisories } from '../advisories.js';
 Meteor.publish('advisories', function() {
   return Advisories.find();
 });
-

@@ -57,7 +57,6 @@ import '../../ui/pages/services-page/services-page.js';
 import '../../ui/pages/advisories/advisories.js';
 
 
-
 // Set up all routes in the app
 // HOMEPAGE
 FlowRouter.route('/', {
@@ -145,6 +144,7 @@ FlowRouter.route('/admin/main', {
     BlazeLayout.render('CMSLayout', { main: 'CMSMain' });
   },
 });
+
 FlowRouter.route('/admin/main-header', {
   name: 'admin.main-header',
   triggersEnter: [ isAdminRedirect ],
@@ -174,6 +174,7 @@ FlowRouter.route('/admin/main-top-header', {
     BlazeLayout.render('CMSLayout', { main: 'TopHeaderOptions' });
   },
 });
+
 FlowRouter.route('/admin/about-us-content', {
   name: 'admin.about-us-content',
   triggersEnter: [ isAdminRedirect ],
@@ -181,6 +182,7 @@ FlowRouter.route('/admin/about-us-content', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsContent' });
   },
 });
+
 FlowRouter.route('/admin/about-us-title', {
   name: 'admin.about-us-title',
   triggersEnter: [ isAdminRedirect ],
@@ -188,6 +190,7 @@ FlowRouter.route('/admin/about-us-title', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsTitle' });
   },
 });
+
 FlowRouter.route('/admin/about-us-partners', {
   name: 'admin.about-us-partners',
   triggersEnter: [ isAdminRedirect ],
@@ -195,6 +198,7 @@ FlowRouter.route('/admin/about-us-partners', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsPartners' });
   },
 });
+
 FlowRouter.route('/admin/about-us-leaders', {
   name: 'admin.about-us-leaders',
   triggersEnter: [ isAdminRedirect ],
@@ -202,6 +206,7 @@ FlowRouter.route('/admin/about-us-leaders', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsLeaders' });
   },
 });
+
 FlowRouter.route('/admin/about-us-projects', {
   name: 'admin.about-us-projects',
   triggersEnter: [ isAdminRedirect ],
@@ -223,6 +228,7 @@ FlowRouter.route('/admin/services', {
     BlazeLayout.render('CMSLayout', { main: 'CMSServices' });
   },
 });
+
 FlowRouter.route('/admin/services/add', {
   name: 'admin.services-add',
   triggersEnter: [ isAdminRedirect ],
@@ -230,6 +236,7 @@ FlowRouter.route('/admin/services/add', {
     BlazeLayout.render('CMSLayout', { main: 'CMSServicesForm' });
   },
 });
+
 FlowRouter.route("/admin/services/:_id", {
   name: 'services',
   triggersEnter: [ isAdminRedirect ],
@@ -279,4 +286,3 @@ FlowRouter.route("/services/:_id", {
     BlazeLayout.render('MainLayout', {main: 'ServicesPage'});
   },
 });
-

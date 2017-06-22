@@ -20,6 +20,3 @@ Meteor.methods({
     });
   },
 });
-
-//methods for advisories
-
