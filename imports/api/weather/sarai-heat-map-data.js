@@ -1,3 +1,3 @@
 import { Mongo } from 'meteor/mongo';
 
-HeatMapData = new Mongo.Collection('heat-map-data');
+export const HeatMapData = new Mongo.Collection('heat_map_data');

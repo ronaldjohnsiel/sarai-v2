@@ -1,3 +1,3 @@
 import { Mongo } from 'meteor/mongo';
 
-DSSSettings = new Mongo.Collection('dss-settings')
+export const DSSSettings = new Mongo.Collection('dss_settings');

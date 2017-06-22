@@ -1,6 +1,7 @@
 import './weather-settings-block.html'
 
 import { Meteor } from 'meteor/meteor';
+import { DSSSettings } from '../../../../../api/weather/sarai-dss-settings.js';
 
 Template.WeatherSettingsBlock.onCreated(() => {
   Meteor.subscribe('dss-settings')
