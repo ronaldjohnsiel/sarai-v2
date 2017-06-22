@@ -166,6 +166,7 @@ Meteor.startup(() => {
           ],
           buttonEnabled: true,
         };
+
     Links.insert(data);
   }
 
