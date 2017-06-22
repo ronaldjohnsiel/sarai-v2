@@ -222,12 +222,14 @@ FlowRouter.route("/admin/services/:_id", {
 });
 FlowRouter.route('/admin/weather', {
   name: 'admin.weather',
+  triggersEnter: [ isAdminRedirect ],
   action() {
     BlazeLayout.render('CMSLayout', { main: 'WeatherCMS' });
   },
 });
 FlowRouter.route('/admin/weather-settings', {
   name: 'admin.weather-settings',
+  triggersEnter: [ isAdminRedirect ],
   action() {
     BlazeLayout.render('CMSLayout', { main: 'WeatherSettingsCMS' });
   },

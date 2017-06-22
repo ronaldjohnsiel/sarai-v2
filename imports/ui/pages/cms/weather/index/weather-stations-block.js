@@ -1,5 +1,6 @@
 import './weather-stations-block.html';
 import { Meteor } from 'meteor/meteor';
+import { WeatherStations } from '../../../../../api/weather/sarai-weather-stations.js';
 
 Template.WeatherStationsBlock.onCreated(() => {
   Meteor.subscribe('record-counts', 'weather-stations')

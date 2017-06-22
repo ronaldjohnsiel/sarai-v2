@@ -1,6 +1,8 @@
 import './weather-stations.html';
 import './weather-stations-row.html';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
+import { WeatherStations } from '../../../../../api/weather/sarai-weather-stations.js';
 
 Template.WeatherStationsCMS.onCreated(() => {
   Meteor.subscribe('sarai-weather-stations')
