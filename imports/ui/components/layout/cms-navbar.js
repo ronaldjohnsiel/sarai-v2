@@ -3,7 +3,3 @@ import { Meteor } from 'meteor/meteor';
 
 import './cms-navbar.html';
 
-
-Accounts.config({
-  forbidClientAccountCreation: true,
-});
