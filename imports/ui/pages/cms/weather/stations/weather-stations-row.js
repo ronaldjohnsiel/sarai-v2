@@ -1,5 +1,6 @@
 import './weather-stations-row.html';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 
 Template.WeatherStationRow.events({
   'click #edit-weather-station': function() {
