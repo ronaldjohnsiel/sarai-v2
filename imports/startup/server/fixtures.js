@@ -6776,7 +6776,7 @@ Meteor.startup(() => {
               rank : ''
             },
             {
-              image: '/img/homepage-slider/Real-Time-Monitoring.jpg',
+              image: '/img/homepage-slider/Real-Time-Monitoring.png',
               textPosition: 'right',
               title: 'REAL-TIME WEATHER MONITORING',
               subTitle: 'Guide your farming practices with weather data',
@@ -6785,41 +6785,69 @@ Meteor.startup(() => {
               buttonLink: ''
             },
             {
-              image: '/img/homepage-slider/Crop-Monitoring-and-Forecasting.jpg',
+              image: '/img/homepage-slider/SEAMS.png',
+              textPosition: 'left',
+              title: 'SARAI-Enhanced Agricultural Monitoring System',
+              subTitle: '',
+              text: 'Making ways for a more proactive and efficient agriculture sector',
+              buttonText: 'LEARN MORE',
+              buttonLink: 'http://maps.sarai.ph/ndvi/'
+            },
+            {
+              image: '/img/homepage-slider/Suitability-Maps.png',
               textPosition: 'right',
-              title: 'CROP MONITORING AND FORECASTING',
-              subTitle: 'Plan your planting practices wisely for optimum yield',
-              text: 'View the 30-day cumulative rainfall data and 10-day weather forecast in your area to know the right time to plant.',
+              title: 'SARAI-Enhanced Agricultural Monitoring System',
+              subTitle: '',
+              text: 'Making ways for a more proactive and efficient agriculture sector',
+              buttonText: 'LEARN MORE',
+              buttonLink: 'http://maps.sarai.ph/ndvi/'
+            },
+            {
+              image: '/img/homepage-slider/Planting-Guide.jpg',
+              textPosition: 'right',
+              title: 'SARAi PLANTING GUIDE',
+              subTitle: 'Plan your planting practices for optimum yield',
+              text: 'Determine the optimal time to plant based on computed expected yield and cumulative rainfall.',
               buttonText: 'EXPLORE',
-              buttonLink: ''
+              buttonLink: '/rainfall-distribution'
             },
             {
-              image: '/img/homepage-slider/Smarter-Crop-Management.jpg',
-              textPosition: 'right',
+              image: '/img/homepage-slider/SPID.png',
+              textPosition: '',
+              title: 'SMARTER PEST IDENTIFICATION TECHNOLOGY',
+              subTitle: '',
+              text: 'Use SPIDTech to identify the pests in your farm, monitor pest infestations, and know how to manage them',
+              buttonText: 'EXPLORE',
+              buttonLink: 'https://pests.sarai.ph'
+            },
+            {
+              image: '/img/homepage-slider/Crop-Mgt.jpg',
+              textPosition: '',
               title: 'SMARTER CROP MANAGEMENT',
-              subTitle: 'Helping farmers to produce more with less',
-              text: 'Know the right amount of nutrient, the adequate management practices for pest and diseases, and the right amount of water for maximum yield.',
-              buttonText: 'KNOW MORE',
-              buttonLink: ''
+              subTitle: 'Helping farmers to produce with less ',
+              text: 'Know the right amount of nutrient, the appropriate management practices for pest and diseases, and the right amount of water for maximum yield.',
+              buttonText: 'MORE',
+              buttonLink: '/services/EKStFhkWTstCEboj5'
             },
             {
-              image: '/img/homepage-slider/MOBILE-APP.png',
-              textPosition: 'right',
-              title: 'SARAI MOBILE APP',
-              subTitle: 'Agriculture alerts on-the-go',
-              text: 'A mobile app where users can receive alerts via push notifications to mobile devices.',
-              buttonText: 'CLICK HERE TO DOWNLOAD',
-              buttonLink: 'https://build.phonegap.com/apps/1850892/install/HNYZJ_mtp4V4uSLkgvCK'
+              image: '/img/homepage-slider/Alerts-And-Advisories.jpg',
+              textPosition: '',
+              title: 'ALERTS AND ADVISORIES',
+              subTitle: '', 
+              text: '',
+              buttonText: 'EXPLORE',
+              buttonLink: '/advisories'
             },
             {
-              image: '/img/homepage-slider/eskwela.png',
-              textPosition: 'right',
-              title: 'SARAI ESKWELA',
-              subTitle: 'Knowledge sharing for smarter agriculture',
-              text: 'Explore the training modules and information, education, and communication materials to guide you in your farming practice.',
-              buttonText: 'CLICK HERE',
-              buttonLink: ''
+              image: '/img/homepage-slider/Eskwela.png',
+              textPosition: '',
+              title: 'CHAMPIONING SARAi',
+              subTitle: '',
+              text: ' <div style="width:20em; margin-top:-30px;"> <span style="font-size:0.8em; ">for improving the lives of vulnerable farmers</span> <iframe style="margin-top:15px;" width="560" height="230" src="https://www.youtube.com/embed/UJqs74jqKMM" frameborder="0" allowfullscreen></iframe> </div>',
+              buttonText: 'VISIT SARAi ESKWELA',
+              buttonLink: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319'
             }
+
           ],
           enabled: true
         }
