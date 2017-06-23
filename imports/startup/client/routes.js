@@ -59,6 +59,8 @@ import '../../ui/components/home/reports.js';
 
 import '../../ui/pages/advisories/advisories.js';
 
+import '../../ui/pages/monitoring/monitoring.js';
+
 // Set up all routes in the app
 // HOMEPAGE
 FlowRouter.route('/', {
@@ -294,4 +296,11 @@ FlowRouter.route("/reports", {
   action() {
     BlazeLayout.render('MainLayout', {main: 'ReportsPage'});
   },
+});
+
+FlowRouter.route("/monitoring", {
+  name: 'monitoring',
+  action() {
+    BlazeLayout.render('MainLayout', {main: 'Monitoring'});
+  }
 });
