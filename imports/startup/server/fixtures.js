@@ -8,16 +8,12 @@ import { Story } from '../../api/story/story.js';
 import { Projects } from '../../api/projects/projects.js';
 import { Services } from '../../api/services/services.js';
 import { Crops } from '../../api/crops/crops.js';
-<<<<<<< ef220a475a38be4e9f912781362e5344577d6ffb
 import { About } from '../../api/about/about.js';
 import { Reports } from '../../api/reports/reports.js';
 import { Advisories } from '../../api/advisories/advisories.js';
 import { Main } from '../../api/main/main.js';
 import { DSSSettings } from '../../api/weather/sarai-dss-settings.js';
 import { WeatherStations } from '../../api/weather/sarai-weather-stations.js';
-=======
-import { Reports } from '../../api/reports/reports.js';
->>>>>>> Added reports
 
 Meteor.startup(() => {
   // if the Links collection is empty
@@ -116,19 +112,19 @@ Meteor.startup(() => {
               links: [
                 {
                   title: 'Alerts and Advisories',
-                  url: 'http://sarai.ph/advisories',
+                  url: '/advisories',
                   rank: '1',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Monitoring',
-                  url: 'http://sarai.ph/weather-monitoring',
+                  url: '/monitoring',
                   rank: '2',
                   createdAt: new Date(),
                 },
                 {
                   title: 'Planting Guide',
-                  url: 'http://sarai.ph/rainfall-distribution',
+                  url: '/rainfall-distribution',
                   rank: '3',
                   createdAt: new Date(),
                 },
