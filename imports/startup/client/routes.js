@@ -23,6 +23,7 @@ import '../../ui/pages/cms/about-us/about-us-partners.js';
 import '../../ui/pages/cms/about-us/about-us-leaders.js';
 import '../../ui/pages/cms/about-us/about-us-projects.js';
 import '../../ui/pages/cms/about-us/about-us-banner.js';
+import '../../ui/pages/cms/services/services-cms-advisories.js';
 import '../../ui/pages/cms/services/services.js';
 import '../../ui/pages/cms/main/main.js';
 import '../../ui/pages/cms/main/banner-options.js';
@@ -222,11 +223,18 @@ FlowRouter.route('/admin/about-us-banner', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsBanner' });
   },
 });
-FlowRouter.route('/admin/services', {
+FlowRouter.route('/admin/services-settings', {
   name: 'admin.services',
   triggersEnter: [ isAdminRedirect ],
   action() {
     BlazeLayout.render('CMSLayout', { main: 'CMSServices' });
+  },
+});
+FlowRouter.route('/admin/services-advisories', {
+  name: 'admin.advisories',
+  triggersEnter: [ isAdminRedirect ],
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSAdvisories' });
   },
 });
 FlowRouter.route('/admin/services/add', {
