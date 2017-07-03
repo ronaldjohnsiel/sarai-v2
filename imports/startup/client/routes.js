@@ -23,6 +23,7 @@ import '../../ui/pages/cms/about-us/about-us-partners.js';
 import '../../ui/pages/cms/about-us/about-us-leaders.js';
 import '../../ui/pages/cms/about-us/about-us-projects.js';
 import '../../ui/pages/cms/about-us/about-us-banner.js';
+import '../../ui/pages/cms/services/services-cms-advisories.js';
 import '../../ui/pages/cms/services/services.js';
 import '../../ui/pages/cms/main/main.js';
 import '../../ui/pages/cms/main/banner-options.js';
@@ -51,14 +52,18 @@ import '../../ui/pages/crops/coconut/coconut.js';
 import '../../ui/pages/crops/coffee/coffee.js';
 import '../../ui/pages/crops/cacao/cacao.js';
 
-import '../../ui/pages/services-page/services-page.js';
 
+import '../../ui/pages/services-page/services-page.js';
 import '../../ui/pages/monitoring/monitoring.js';
 
 import '../../ui/pages/reports/reports-page.js';
 import '../../ui/components/home/reports.js';
 
 import '../../ui/pages/advisories/advisories.js';
+
+
+
+
 
 // Set up all routes in the app
 // HOMEPAGE
@@ -147,7 +152,6 @@ FlowRouter.route('/admin/main', {
     BlazeLayout.render('CMSLayout', { main: 'CMSMain' });
   },
 });
-
 FlowRouter.route('/admin/main-header', {
   name: 'admin.main-header',
   triggersEnter: [ isAdminRedirect ],
@@ -177,7 +181,6 @@ FlowRouter.route('/admin/main-top-header', {
     BlazeLayout.render('CMSLayout', { main: 'TopHeaderOptions' });
   },
 });
-
 FlowRouter.route('/admin/about-us-content', {
   name: 'admin.about-us-content',
   triggersEnter: [ isAdminRedirect ],
@@ -185,7 +188,6 @@ FlowRouter.route('/admin/about-us-content', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsContent' });
   },
 });
-
 FlowRouter.route('/admin/about-us-title', {
   name: 'admin.about-us-title',
   triggersEnter: [ isAdminRedirect ],
@@ -193,7 +195,6 @@ FlowRouter.route('/admin/about-us-title', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsTitle' });
   },
 });
-
 FlowRouter.route('/admin/about-us-partners', {
   name: 'admin.about-us-partners',
   triggersEnter: [ isAdminRedirect ],
@@ -201,7 +202,6 @@ FlowRouter.route('/admin/about-us-partners', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsPartners' });
   },
 });
-
 FlowRouter.route('/admin/about-us-leaders', {
   name: 'admin.about-us-leaders',
   triggersEnter: [ isAdminRedirect ],
@@ -224,14 +224,20 @@ FlowRouter.route('/admin/about-us-banner', {
     BlazeLayout.render('CMSLayout', { main: 'CMSAboutUsBanner' });
   },
 });
-FlowRouter.route('/admin/services', {
+FlowRouter.route('/admin/services-settings', {
   name: 'admin.services',
   triggersEnter: [ isAdminRedirect ],
   action() {
     BlazeLayout.render('CMSLayout', { main: 'CMSServices' });
   },
 });
-
+FlowRouter.route('/admin/services-advisories', {
+  name: 'admin.advisories',
+  triggersEnter: [ isAdminRedirect ],
+  action() {
+    BlazeLayout.render('CMSLayout', { main: 'CMSAdvisories' });
+  },
+});
 FlowRouter.route('/admin/services/add', {
   name: 'admin.services-add',
   triggersEnter: [ isAdminRedirect ],
@@ -239,7 +245,6 @@ FlowRouter.route('/admin/services/add', {
     BlazeLayout.render('CMSLayout', { main: 'CMSServicesForm' });
   },
 });
-
 FlowRouter.route("/admin/services/:_id", {
   name: 'services',
   triggersEnter: [ isAdminRedirect ],
@@ -248,7 +253,6 @@ FlowRouter.route("/admin/services/:_id", {
     BlazeLayout.render("CMSLayout", {main: "CMSServicesForm"});
   },
 });
-
 FlowRouter.route('/admin/weather', {
   name: 'admin.weather',
   triggersEnter: [ isAdminRedirect ],

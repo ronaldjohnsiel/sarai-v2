@@ -188,7 +188,6 @@ Meteor.startup(() => {
       value: '9470644e92f975d3'
     });
   }
-
   if (Main.find().count() === 0) {
     const data = 
       [
@@ -337,7 +336,7 @@ Meteor.startup(() => {
               rank : ''
             },
             {
-              image: '/img/homepage-slider/Real-Time-Monitoring.jpg',
+              image: '/img/homepage-slider/Real-Time-Monitoring.png',
               textPosition: 'right',
               title: 'REAL-TIME WEATHER MONITORING',
               subTitle: 'Guide your farming practices with weather data',
@@ -346,41 +345,69 @@ Meteor.startup(() => {
               buttonLink: ''
             },
             {
-              image: '/img/homepage-slider/Crop-Monitoring-and-Forecasting.jpg',
+              image: '/img/homepage-slider/SEAMS.png',
+              textPosition: 'left',
+              title: 'SARAI-Enhanced Agricultural Monitoring System',
+              subTitle: '',
+              text: 'Making ways for a more proactive and efficient agriculture sector',
+              buttonText: 'LEARN MORE',
+              buttonLink: 'http://maps.sarai.ph/ndvi/'
+            },
+            {
+              image: '/img/homepage-slider/Suitability-Maps.png',
               textPosition: 'right',
-              title: 'CROP MONITORING AND FORECASTING',
-              subTitle: 'Plan your planting practices wisely for optimum yield',
-              text: 'View the 30-day cumulative rainfall data and 10-day weather forecast in your area to know the right time to plant.',
+              title: 'SARAI-Enhanced Agricultural Monitoring System',
+              subTitle: '',
+              text: 'Making ways for a more proactive and efficient agriculture sector',
+              buttonText: 'LEARN MORE',
+              buttonLink: 'http://maps.sarai.ph/ndvi/'
+            },
+            {
+              image: '/img/homepage-slider/Planting-Guide.jpg',
+              textPosition: 'right',
+              title: 'SARAi PLANTING GUIDE',
+              subTitle: 'Plan your planting practices for optimum yield',
+              text: 'Determine the optimal time to plant based on computed expected yield and cumulative rainfall.',
               buttonText: 'EXPLORE',
-              buttonLink: ''
+              buttonLink: '/rainfall-distribution'
             },
             {
-              image: '/img/homepage-slider/Smarter-Crop-Management.jpg',
-              textPosition: 'right',
+              image: '/img/homepage-slider/SPID.png',
+              textPosition: '',
+              title: 'SMARTER PEST IDENTIFICATION TECHNOLOGY',
+              subTitle: '',
+              text: 'Use SPIDTech to identify the pests in your farm, monitor pest infestations, and know how to manage them',
+              buttonText: 'EXPLORE',
+              buttonLink: 'https://pests.sarai.ph'
+            },
+            {
+              image: '/img/homepage-slider/Crop-Mgt.jpg',
+              textPosition: '',
               title: 'SMARTER CROP MANAGEMENT',
-              subTitle: 'Helping farmers to produce more with less',
-              text: 'Know the right amount of nutrient, the adequate management practices for pest and diseases, and the right amount of water for maximum yield.',
-              buttonText: 'KNOW MORE',
-              buttonLink: ''
+              subTitle: 'Helping farmers to produce with less ',
+              text: 'Know the right amount of nutrient, the appropriate management practices for pest and diseases, and the right amount of water for maximum yield.',
+              buttonText: 'MORE',
+              buttonLink: '/services/EKStFhkWTstCEboj5'
             },
             {
-              image: '/img/homepage-slider/MOBILE-APP.png',
-              textPosition: 'right',
-              title: 'SARAI MOBILE APP',
-              subTitle: 'Agriculture alerts on-the-go',
-              text: 'A mobile app where users can receive alerts via push notifications to mobile devices.',
-              buttonText: 'CLICK HERE TO DOWNLOAD',
-              buttonLink: 'https://build.phonegap.com/apps/1850892/install/HNYZJ_mtp4V4uSLkgvCK'
+              image: '/img/homepage-slider/Alerts-And-Advisories.jpg',
+              textPosition: '',
+              title: 'ALERTS AND ADVISORIES',
+              subTitle: '', 
+              text: '',
+              buttonText: 'EXPLORE',
+              buttonLink: '/advisories'
             },
             {
-              image: '/img/homepage-slider/eskwela.png',
-              textPosition: 'right',
-              title: 'SARAI ESKWELA',
-              subTitle: 'Knowledge sharing for smarter agriculture',
-              text: 'Explore the training modules and information, education, and communication materials to guide you in your farming practice.',
-              buttonText: 'CLICK HERE',
-              buttonLink: ''
+              image: '/img/homepage-slider/Eskwela.png',
+              textPosition: '',
+              title: 'CHAMPIONING SARAi',
+              subTitle: '',
+              text: ' <div style="width:20em; margin-top:-30px;"> <span style="font-size:0.8em; ">for improving the lives of vulnerable farmers</span> <iframe style="margin-top:15px;" width="560" height="230" src="https://www.youtube.com/embed/UJqs74jqKMM" frameborder="0" allowfullscreen></iframe> </div>',
+              buttonText: 'VISIT SARAi ESKWELA',
+              buttonLink: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319'
             }
+
           ],
           enabled: true
         }
@@ -427,6 +454,7 @@ Meteor.startup(() => {
       rank: 4,
       image: 'https://geneticliteracyproject.org/wp-content/uploads/2016/07/n-fix-crops.jpg',
     },
+
   ];
     data.forEach(slide => Slides.insert(slide));
   }
@@ -514,6 +542,30 @@ Meteor.startup(() => {
       },
       sort: 8
     },
+    {
+      url: '#',
+      title: 'Integrated Crop Management # 4',
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    },
+    {
+      url: '#',
+      title: 'Integrated Crop Management # 5',
+      tagline: 'Enhance your adaptibility by using SARAi’s integrated crop support system.',
+      ura: 'Ivy Rose Marajas; Kim Nyka Pedeguerra; Marck Ferdie Eusebio; Yaminah Mochica Pinca',
+      projectLeaders: 'Project 2, Dr. Art Salazar, Project Leader',
+      crops: 'Rice, Corn, Banana, Coconut, Coffee, and Cacao',
+      experts: 'Dr. Pompe Sta. Cruz, CA, UPLB; Dr. Ronaldo Saludes, CEAT, UPLB',
+      challenge: 'Nutrient Management is a vital process in farming. It pertains...',
+      solution: 'Using the SARAi Nutrient Manager, registered farmers can get recommendation...',
+      thumbnail: 'http://proptera.com/application/files/2314/2420/9499/iStock_000012551695_Lettuce_Large.jpg'
+    }
   ];
     data.forEach(services => Services.insert(services));
   }
@@ -555,19 +607,35 @@ Meteor.startup(() => {
     data.forEach(logo => Story.insert(logo));
   }
 
+  if (Reports.find().count() === 0) {
+    const data = [
+      // {
+      //   title:
+      //   file:
+      //   thumbnail:
+      //   date:
+      // }
+    ];
+  }
+
   if (Advisories.find().count() === 0){
     const data = [
       {
         title: 'General Advisory based on Weather Forecast',
         subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management',
-        body: 'Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao. There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable. For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.',
+        body: '<ul><li>Mindanao and Eastern Visayas, rainfall beyond 100mm is already expected in later part of April or early May and it will mostly happen in CARAGA, Davao and Eastern Visayas</li> <li>Corn, and other upland crops including rainfed upland rice, is therefore expected to be planted earlier in these regions. Other regions will experience more rains in June and planting will ensue. Earliest corn harvest (in July) is therefore expected from Mindanao.</li><li> There will be slight drop in rainfall in June but the moistened soil in May and further rain (though less in June) should be enough to sustain the corn/upland crop</li> <li>Rainfall is expected to be heavy in July and August. Drying could be a concern here if corn harvesting happens in these months (wet grains have less market price). Early planting or use of early maturing varieties (of corn and other suitable crops) is therefore advisable.</li> </li> For lowland rice, irrigated and rainfed, soil saturation is expected to happen in July-August. Generally, there is heavier rainfall during these months for Luzon and Visayas. Mindanao has more even rainfall Expect wet season rice harvest to come in earliest by October mostly coming from Mindanao.</li></ul>',
         date: 'April 16, 2017'
-      }
+      },
+      {
+        title: 'iCMF Bulletin # 1 For 2017 Wet Season Crop and Preliminary to the Dry Season Crop',
+        subtitle: 'Dr. Artemio Salazar, SARAI Project Leader - Environmental Characterization and Development of Integrated Crop Management',
+        body: '<ul><li>Summer solstice is on June 21. Expect longer days than night up to September. Coupled with more rains, this is the reason why crop yields are higher these months. Short day plants i.e. plants requiring shorter day length to flower like sorghum, soybeans, some forages and vegetables will tend to be vegetative i.e. with more biomass formation. This will indeed be very advantageous for the northern part of the country like CAR and Cagayan Valley. But again the problem with typhoons. Hence the importance of planting time (early) in those areas to avoid the wraths of typhoon especially at harvest time and sometimes even flowering time (if planted late). This is the reason why you notice the tractors in Isabela are almost in a race at planting time during the wet season viz, to make best use of the weather. The late planters will wail. They might not know these equinoxes and solstices, but they know what they are doing!</li><li>The only concern now is the price of corn at harvest. With 2 million tons of feed wheat imported, equivalent to .7M tons of corn, that will indeed be a huge corn price depressant. Let us export corn to help our farmers!</li><li>Maybe this is the time to promote corn- legume rotation so that the farmers will not be beholden to one crop. We import a lot of those legumes anyway (mungbean, peanut and soybean) so there is local market. The rotation also perks up the corn yield after the legume crop because of the N-fixation capability of the legumes hence saving on N fertilizer. We have the local data to support that. It can also break the corn pest/diseases build up in the farm. Help the farmer, help the soil, help the corn: let us do crop rotation! In some countries that is even legislated.</li><li>Reminder again for the conditioning of mechanical dryers. Also for crops harvestable during dry months of March and April, like cassava. Planting fruit trees and other perennials now would also be ideal. Diversifying the crops in our farms would be good for the environment and farmers’ livelihood</li></ul>',
+        date: 'June 21, 2017'
+      },
     ];
 
     data.forEach(entry => Advisories.insert(entry));
   }
-
   if (About.find().count() === 0) {
     const data = [
       {
