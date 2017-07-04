@@ -1,8 +1,32 @@
+import { WeatherStations } from '/imports/api/weather/sarai-weather-stations.js';
+import { HeatMapData } from '/imports/api/weather/sarai-heat-map-data.js';
+import { DSSSettings } from '/imports/api/weather/sarai-dss-settings.js';
+import { WeatherData } from '/imports/api/weather/sarai-weather-data.js';
+import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker'
 import './monitoring.html';
+import './helpers/chart-helpers.js';
+import './helpers/year-chart-helpers.js';
+import './helpers/accumulated-rain-helpers.js';
+import '../../components/advisories/advisories-subheader.js';
 
 Template.Monitoring.onCreated(function() {
   Meteor.subscribe('weather_stations')
+  Meteor.subscribe('weather_data')
+  Meteor.subscribe('dss_settings', () => {
+    const record = DSSSettings.findOne({name: 'wunderground-api-key'})
+    this.apiKey = record.value
+
+    //display default station
+    Session.set('stationID', 'ICALABAR18')
+    Session.set('apiKey', this.apiKey)
+
+    this.visibleChart = 'forecast'
+    $('#forecast button').addClass('active')
+    
+    displayWeatherData(Session.get('stationID'), Session.get('apiKey'))
+
+  })
 
   Highcharts.setOptions({
   // This is for all plots, change Date axis to local timezone
@@ -13,6 +37,7 @@ Template.Monitoring.onCreated(function() {
 });
 
 Template.Monitoring.onRendered(function() {
+  
   /****MAP****/
 
   // Settings Bounds of map
@@ -21,7 +46,7 @@ Template.Monitoring.onRendered(function() {
   const bounds = L.latLngBounds(southWest, northEast);
 
   //Create group
-  const group = L.layerGroup()
+  group = L.layerGroup()
 
   //Create map
   const weatherMap = L.map('weather-map', {
@@ -39,17 +64,22 @@ Template.Monitoring.onRendered(function() {
     accessToken: 'pk.eyJ1IjoibWNhcmFuZGFuZyIsImEiOiJjaWtxaHgzYTkwMDA4ZHZtM3E3aXMyYnlzIn0.x63VGx2C-BP_ttuEsn2fVg'
   }).addTo(weatherMap);
 
+  const showWeatherData = (stationID, label, event) => {
+    Session.set('stationID', stationID)
+    displayWeatherData(stationID, Session.get('apiKey'))
+  }
+
   Meteor.subscribe('weather_stations', () => {
-    Tracker.autorun(() => {
+    Meteor.autorun(() => {
       const stations = WeatherStations.find().fetch()
       let defaultStation = null
 
       for (let a = 0; a < stations.length; a++) {
         const station = stations[a]
-        const x = station.lat
-        const y = station.long
+        const x = station.coords[0]
+        const y = station.coords[1]
         const label = stripTitle(station.label)
-        const stationID = station.stationID
+        const stationID = station.id
 
         const marker = new L.marker([x, y])
         .bindPopup(`<h5>${label}</h5>`)
@@ -85,65 +115,74 @@ Template.Monitoring.onRendered(function() {
       //Set default station in dropdown
       stationsDropdown.val(defaultStation)
 
-      this.stations = stations
-      this.weatherMap = weatherMap
+      Session.set('stations', stations)
+      this.stations = stations;
+      this.weatherMap = weatherMap;
       this.group = group
     })
   })
+});
 
-  var s = $('#meteogram-container');
-  console.log(s);
 
-  // NOTE THAT THIS IS JUST A SAMPLE FROM THE HIGHCHARTS SITE
-  Highcharts.chart('meteogram-container', {
+Template.Monitoring.events({
+  'click #forecast': () => {
+    this.visibleChart = 'forecast'
+    activateButton('forecast')
+    displayWeatherData(Session.get('stationID'), Session.get('apiKey'))
+  },
 
-    title: {
-        text: 'Solar Employment Growth by Sector, 2010-2016'
-    },
+  'click #accumulated': () => {
+    this.visibleChart = 'accumulated'
+    activateButton('accumulated')
 
-    subtitle: {
-        text: 'Source: thesolarfoundation.com'
-    },
+    displayWeatherData(Session.get('stationID'), Session.get('apiKey'))
+  },
 
-    yAxis: {
-        title: {
-            text: 'Number of Employees'
-        }
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
+  'click #year': () => {
+    this.visibleChart =  'year'
+    activateButton('year')
 
-    plotOptions: {
-        series: {
-            pointStart: 2010
-        }
-    },
+    displayWeatherData(Session.get('stationID'), Session.get('apiKey'))
+  },
 
-    series: [{
-        name: 'Installation',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-    }, {
-        name: 'Manufacturing',
-        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-    }, {
-        name: 'Sales & Distribution',
-        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-    }, {
-        name: 'Project Development',
-        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-    }, {
-        name: 'Other',
-        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-    }]
+  'change #monitoring-station-select': () => {
+    const markerID = $('#monitoring-station-select').val()
 
-  });
+    const station = Template.instance().stations.find((element) => {
+      return element.markerID == markerID
+    })
 
+    const marker = Template.instance().group.getLayer(markerID)
+    Template.instance().weatherMap.setView(marker.getLatLng(), 10)
+    marker.openPopup()
+    displayWeatherData(station.id, Template.instance().apiKey)
+  }
 });
 
 Template.Monitoring.helpers({
+  forecastIsSelected: () => {
+    if (this.visibleChart == 'forecast' ) {
+      return true
+    } else {
+      return false
+    }
+  },
+
+  stationsRainfall: () => {
+    const stationsRainfall = WeatherStations.find({}, {fields: {id: 1}}).fetch()
+
+    stationsRainfall.forEach((element, index) => {
+      const weatherData = WeatherData.find({id: element.id}).fetch()
+
+      const rainfallTotals = Meteor.AccumulatedRainfall.getTotal(weatherData)
+
+      element['rainfall10'] = rainfallTotals[0]
+      element['rainfall30'] = rainfallTotals[1]
+    })
+
+    return stationsRainfall
+  },
+
   stations: () => {
     const stations = WeatherStations.find({}).fetch()
 
@@ -151,24 +190,174 @@ Template.Monitoring.helpers({
       element.label = stripTitle(element.label)
     })
 
-  return stations
+    return stations
   }
 });
 
-Template.Monitoring.events({
-  'change #monitoring-station-select': () => {
-    const markerID = $('#monitoring-station-select').val()
+const displayWeatherData = (stationID, apiKey) => {
 
-    const station = this.stations.find((element) => {
-      return element.markerID == markerID
-    })
+  //Remove any existing chart
+  $('div.meteogram').remove()
 
-    const marker = this.group.getLayer(markerID)
-
-    this.weatherMap.setView(marker.getLatLng(), 10)
-    marker.openPopup()
+  //Display temporary spinner
+  $('<div class="meteogram meteogram-stub"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></div>').appendTo('#meteogram-container')
+  if (this.visibleChart == 'forecast' || this.visibleChart == undefined) {
+    displayForecast(stationID, apiKey)
+  } else if (this.visibleChart == 'accumulated') {
+    displayAccumulatedRain(stationID, apiKey)
+  } else {
+    displayYear(stationID)
   }
-})
+}
+
+const displayForecast = (stationID, apiKey) => {
+
+  if (apiKey) { //Make sure key is available
+    const dataFeatures = [ 'conditions', 'hourly10day', 'forecast10day']
+
+    $.getJSON(`http:\/\/api.wunderground.com/api/${apiKey}${Meteor.chartHelpers.featureURI(dataFeatures)}/q/pws:${stationID}.json`, (result) => {
+
+      const dailySeries = Meteor.chartHelpers.getDailySeries(result)
+      const hourlySeries = Meteor.chartHelpers.getHourlySeries(result)
+      //common data
+      const tickPositions = Meteor.chartHelpers.getTickPositions(result)
+      const altTickPositions = Meteor.chartHelpers.getAltTickPositions(result)
+
+      const plotLines = Meteor.chartHelpers.getPlotLines(tickPositions)
+
+      const tickQPFMap = Meteor.chartHelpers.getTickQPFMap(altTickPositions, dailySeries.qpf)
+      const tickTempMap = Meteor.chartHelpers.getTickTempMap(altTickPositions, dailySeries.hlTemp)
+
+      const charts = [
+        {
+          element: '#temp-meteogram',
+          title: 'Temperature',
+          name: 'Temp',
+          id: 'temp',
+          data: hourlySeries.temp,
+          unit: '°C',
+          tickPositions: tickPositions,
+          altTickPositions: altTickPositions,
+          color: '#ff8c1a',
+          dateTicksEnabled: true,
+          plotLines,
+          altTickLabels: tickTempMap,
+        },
+        {
+          element: '#rain-meteogram',
+          title: 'Chance of Rain',
+          name: 'Chance of Rain',
+          id: 'pop',
+          data: hourlySeries.pop,
+          unit: '%',
+          tickPositions: tickPositions,
+          altTickPositions: altTickPositions,
+          color: '#0073e6',
+          dateTicksEnabled: false,
+          plotLines,
+          altTickLabels: tickQPFMap
+        }
+      ]
+
+      //remove any existing charts first
+      $('div.meteogram').remove()
+
+      //add new charts
+      var chartDiv = document.createElement('div');
+      var tempDiv = document.createElement('div');
+      var rainDiv = document.createElement('div');
+      $(chartDiv).addClass('meteogram');
+      $(tempDiv).attr('id','temp-meteogram');
+      $(rainDiv).attr('id','rain-meteogram');
+      $(tempDiv).appendTo(chartDiv);
+      $(rainDiv).appendTo(chartDiv);
+      
+      $('#meteogram-container').append(chartDiv);
+
+      //add new charts
+      // charts.forEach((chart, index) => {
+      //   $('<div class="meteogram">')
+      //     .appendTo('#meteogram-container')
+      //     .highcharts(constructChart(chart))
+      // })
+
+
+      Highcharts.chart(tempDiv, Meteor.chartHelpers.constructChart(charts[0]));
+      Highcharts.chart(rainDiv, Meteor.chartHelpers.constructChart(charts[1]));
+    })
+  }
+
+}
+
+const displayYear = (stationID) => {
+  //remove any existing chart first
+  $('div.meteogram').remove()
+  Meteor.subscribe('heat_map_data', stationID, () => {
+    const records = HeatMapData.find({stationID: stationID})
+
+    const data = Meteor.YearWeather.constructSeries(records.fetch());
+    var chartDiv = document.createElement('div');
+    var yearDiv = document.createElement('div');
+    $(chartDiv).addClass('meteogram');
+    $(yearDiv).attr('id','year-meteogram');
+    $(yearDiv).appendTo(chartDiv);
+
+    $('#meteogram-container').append(chartDiv);
+    Highcharts.chart(yearDiv, Meteor.YearWeather.constructChart(data[0], data[1]));
+  })
+
+}
+
+const displayAccumulatedRain = (stationID, apiKey) => {
+  const weatherData = WeatherData.find({id: stationID}).fetch()
+  //have to reconcile missing entries
+  if (weatherData) {
+    const fixedData = Meteor.AccumulatedRainfall.fillMissingEntries(weatherData.reverse())
+
+    const pastRainfall = Meteor.AccumulatedRainfall.getPastRainfall(fixedData)
+
+    if (apiKey) {
+
+      $.getJSON(`http:\/\/api.wunderground.com/api/${apiKey}/forecast10day/q/pws:${stationID}.json`, (result) => {
+
+        // const result = Meteor.RainfallSampleData.sampleData()
+
+        //remove any existing chart first
+        $('div.meteogram').remove()
+
+        const runningTotal = pastRainfall.pastAccRainfall[29].y
+
+        const forecast = Meteor.AccumulatedRainfall.getForecast(result, runningTotal)
+
+        const completeData = Meteor.AccumulatedRainfall.assembleRainfallData(pastRainfall.pastRainfall, pastRainfall.pastAccRainfall, forecast.forecastRainfall, forecast.forecastAccumulated)
+
+        console.log(completeData)
+
+        var chartDiv = document.createElement('div');
+        var rainfallDiv = document.createElement('div');
+        $(chartDiv).addClass('meteogram');
+        $(rainfallDiv).attr('id','rainfall-meteogram');
+        $(rainfallDiv).appendTo(chartDiv);
+
+        $('#meteogram-container').append(chartDiv);
+        Highcharts.chart(rainfallDiv, Meteor.AccumulatedRainfall.constructChart(completeData.completeRainfall, completeData.completeAccumulatedRainfall, forecast.plotBandStart, forecast.plotBandEnd));
+
+      })
+    }
+  }
+}
+
+const activateButton = (id) => {
+  $(`#${id} > button`).addClass('active')
+
+  const charts = ['forecast', 'accumulated', 'year']
+
+  charts.forEach((element) => {
+    if (element != id) {
+      $(`#${element} > button`).removeClass('active')
+    }
+  })
+}
 
 const stripTitle = (title) => {
   let result = title
