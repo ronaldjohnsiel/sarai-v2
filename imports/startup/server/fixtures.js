@@ -17,6 +17,10 @@ import { WeatherStations } from '../../api/weather/sarai-weather-stations.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
+  if (Meteor.users.find().fetch().length === 0) {
+      Accounts.createUser({username: 'admin', password: 'sarai006'});
+  }
+
   if (Links.find().count() === 0) {
     const data = 
       {

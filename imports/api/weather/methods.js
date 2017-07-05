@@ -1,4 +1,7 @@
 import { Meteor } from 'meteor/meteor';
+import { WeatherStations } from './sarai-weather-stations.js';
+import { WeatherData }  from './sarai-weather-data.js';
+import { DSSSettings } from './sarai-dss-settings.js';
 
 Meteor.methods({
   'cms-weather-data-edit': (_id, tempAve, tempMin, tempMax, humAve, humMin, humMax, windAve, windMax, preMin, preMax, rain) => {
@@ -57,7 +60,19 @@ Meteor.methods({
       { upsert: false }
     )
   },
+  'cms-weather-station-add': (id, label, lat, long, region, enabled) => {
 
+    return WeatherStations.insert(
+      {
+        id : id, 
+        label : label,
+        coords : [ lat, long ],
+        enabled: enabled,
+        region: region 
+      },
+      { upsert: true }
+    )
+  },
   'cms-weather-wu-key-edit': (key) => {
     DSSSettings.update(
       { name: 'wunderground-api-key'},
@@ -66,5 +81,12 @@ Meteor.methods({
       },
       { upsert: false }
     )
-  }
+  },
+  'get30DayCumulativeRainfall': (id) => {
+    console.log(this)
+
+    const records = WeatherData.find({id})
+
+    console.log(records)
+  },
 })
