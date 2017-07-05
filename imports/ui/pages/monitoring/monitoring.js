@@ -66,6 +66,7 @@ Template.Monitoring.onRendered(function() {
 
   const showWeatherData = (stationID, label, event) => {
     Session.set('stationID', stationID)
+
     displayWeatherData(stationID, Session.get('apiKey'))
   }
 
@@ -76,10 +77,10 @@ Template.Monitoring.onRendered(function() {
 
       for (let a = 0; a < stations.length; a++) {
         const station = stations[a]
-        const x = station.coords[0]
-        const y = station.coords[1]
+        const x = station.lat
+        const y = station.long
         const label = stripTitle(station.label)
-        const stationID = station.id
+        const stationID = station.stationID
 
         const marker = new L.marker([x, y])
         .bindPopup(`<h5>${label}</h5>`)
@@ -155,7 +156,7 @@ Template.Monitoring.events({
     const marker = Template.instance().group.getLayer(markerID)
     Template.instance().weatherMap.setView(marker.getLatLng(), 10)
     marker.openPopup()
-    displayWeatherData(station.id, Template.instance().apiKey)
+    displayWeatherData(station.stationID, Template.instance().apiKey)
   }
 });
 
@@ -211,12 +212,12 @@ const displayWeatherData = (stationID, apiKey) => {
 }
 
 const displayForecast = (stationID, apiKey) => {
-
+console.log(apiKey + stationID)
   if (apiKey) { //Make sure key is available
     const dataFeatures = [ 'conditions', 'hourly10day', 'forecast10day']
 
     $.getJSON(`http:\/\/api.wunderground.com/api/${apiKey}${Meteor.chartHelpers.featureURI(dataFeatures)}/q/pws:${stationID}.json`, (result) => {
-
+      console.log(result)
       const dailySeries = Meteor.chartHelpers.getDailySeries(result)
       const hourlySeries = Meteor.chartHelpers.getHourlySeries(result)
       //common data
