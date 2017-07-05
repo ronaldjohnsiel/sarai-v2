@@ -22,7 +22,12 @@ const fillWeatherStationDialog = (stationID) => {
 
   Meteor.subscribe('weather_stations', stationID, () => {
     const record = WeatherStations.findOne()
+    const id = Session.get('weather-station-id');
 
+    $('#cms-weather-station-dialog-title').html('Edit '+id);
+    $('#cms-ws-id').attr('style','display:none;');
+    $('#cms-ws-region').attr('style','display:none;');
+    $('#cms-ws-enabled').attr('style','display:none;');
     $('#cms-ws-label-input').val(record.label)
     $('#cms-ws-lat-input').val(record.coords[0])
     $('#cms-ws-long-input').val(record.coords[1])
