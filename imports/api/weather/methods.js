@@ -61,6 +61,9 @@ Meteor.methods({
       { upsert: false }
     )
   },
+  'cms-weather-station-delete': (id) => {
+    WeatherStations.remove({_id: id});
+  },
   'cms-weather-station-add': (id, label, lat, long, region, enabled) => {
 
     WeatherStations.insert(
