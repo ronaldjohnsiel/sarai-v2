@@ -28,7 +28,7 @@ Template.WeatherStationsCMS.helpers({
 
 Template.WeatherStationsCMS.events({
   'click #cms-weather-station-add': () => {
-    this.action = 'add';
+    Session.set('weather-station-action', 'add');
     const dialog = document.querySelector('#cms-weather-station-dialog')
 
     fillWeatherStationDialog('Add Weather Station');
@@ -41,12 +41,12 @@ const initWeatherStationDialog = (dialogID) => {
   dialog.querySelector('.save').addEventListener('click', () => {
 
     let enabled = '';
-    const action = this.action;
+    const action = Session.get('weather-station-action');
     const label = $('#cms-ws-label-input').val()
     const lat = parseFloat($('#cms-ws-lat-input').val())
     const long = parseFloat($('#cms-ws-long-input').val())
     const region = $('#cms-ws-region-input').val()
-    let stationID = Session.get('weather-station-id')
+    let stationID = Session.get('ws-id')
 
     if(document.getElementById('enabledTrue').checked){
       enabled = true;
@@ -76,6 +76,8 @@ const initWeatherStationDialog = (dialogID) => {
 };
 
 const fillWeatherStationDialog = (dialogTitle) => {
+    const stationID = '';
+    const region = '';
     const label = '';
     const lat = '';
     const long = '';
@@ -84,7 +86,11 @@ const fillWeatherStationDialog = (dialogTitle) => {
     $('#cms-ws-id').attr('style','display:inline;');
     $('#cms-ws-region').attr('style','display:inline;');
     $('#cms-ws-enabled').attr('style','display:inline;');
+    $('#enabledTrue').attr('checked', false);
+    $('#enabledFalse').attr('checked', false);
     $('#cms-ws-label-input').val(label);
     $('#cms-ws-lat-input').val(lat);
     $('#cms-ws-long-input').val(long);
+    $('#cms-ws-id-input').val(stationID);
+    $('#cms-ws-region-input').val(region);
 };
