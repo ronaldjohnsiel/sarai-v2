@@ -32,6 +32,17 @@ Template.WeatherStationsCMS.events({
     const dialog = document.querySelector('#cms-weather-station-dialog')
 
     fillWeatherStationDialog('Add Weather Station');
+  },
+  'click #ws-confirm-delete': function() {
+    const id  = Session.get('ws-id');
+    
+    Meteor.call('cms-weather-station-delete', id, (error, result) => {
+      let toast = 'Successfully deleted!'
+      if (error) {
+        toast = 'Unable to delete!'
+      }
+      showToast(toast)
+    });
   }
 })
 
