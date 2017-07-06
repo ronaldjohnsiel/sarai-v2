@@ -135,6 +135,14 @@ Template.CMSServicesEditForm.helpers({
     }
   },
 
+  serviceTitle: () => {
+    if(this.action == 'add'){
+      return 'Add Service'
+    }else{
+      return 'Edit Service';
+    }
+  },
+
   // col1Text: () => {
   //   if (Template.instance().data.service) {
   //     $('#cms-service-col1text-editor').code(Template.instance().data.service.col1.content);
