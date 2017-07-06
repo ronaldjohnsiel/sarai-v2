@@ -50,11 +50,12 @@ Meteor.methods({
 
   'cms-weather-station-edit': (id, label, lat, long) => {
     WeatherStations.update(
-      { id },
+      { _id: id },
       {
         $set: {
           label: label,
-          coords: [lat, long]
+          lat: lat,
+          long: long
         }
       },
       { upsert: false }
@@ -62,11 +63,12 @@ Meteor.methods({
   },
   'cms-weather-station-add': (id, label, lat, long, region, enabled) => {
 
-    return WeatherStations.insert(
+    WeatherStations.insert(
       {
-        id : id, 
+        stationID : id, 
         label : label,
-        coords : [ lat, long ],
+        lat : lat,
+        long : long,
         enabled: enabled,
         region: region 
       },
