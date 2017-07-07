@@ -13,7 +13,9 @@ Template.WeatherStationRow.events({
 
     fillWeatherStationDialog(this._id)
 
-    //dialog.showModal()
+  },
+  'click #delete-weather-station': function() {
+    Session.set('ws-id', this._id)
   }
 })
 
