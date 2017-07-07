@@ -14,6 +14,7 @@ import { Advisories } from '../../api/advisories/advisories.js';
 import { Main } from '../../api/main/main.js';
 import { DSSSettings } from '../../api/weather/sarai-dss-settings.js';
 import { WeatherStations } from '../../api/weather/sarai-weather-stations.js';
+import { WeatherData } from '../../api/weather/sarai-weather-data.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
@@ -200,6 +201,10 @@ Meteor.startup(() => {
     DSSSettings.insert({
       name: 'wunderground-api-key',
       value: '323d30926107851b'
+    });
+    DSSSettings.insert({
+      name : 'wunderground-api-key-download',
+      value : '348fd9a800af4251'
     });
   }
   if (Main.find().count() === 0) {
@@ -447,6 +452,10 @@ Meteor.startup(() => {
     DSSSettings.insert({
       name: 'wunderground-api-key',
       value: '9470644e92f975d3'
+    }),
+    DSSSettings.insert({
+      name : 'wunderground-api-key-download',
+      value : '348fd9a800af4251'
     });
   }
   if (Main.find().count() === 0) {
@@ -8794,5 +8803,1562 @@ Meteor.startup(() => {
     ];
 
     data.forEach(advisory => Advisories.insert(advisory));
-  }  
+  }
+
+  if (WeatherData.find().count() === 0){
+    const data = [
+      {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 8.0,
+            "day" : 29.0
+      },
+        "data" : {
+            "temp" : {
+                "ave" : 27.3,
+                "min" : 25.1,
+                "max" : 29.3
+            },
+            "pressure" : {
+                "min" : 1004.0,
+                "max" : 1007.0
+            },
+            "wind" : {
+                "maxSpd" : 37.0,
+                "aveSpd" : 11.0,
+                "gustMaxSpd" : 43.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 81.0,
+                "max" : 93.0
+            },
+            "rainfall" : 0.3
+        },
+        "dateUTC" : Date("2013-09-28T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 8.0,
+            "day" : 30.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 28.1,
+                "min" : 26.6,
+                "max" : 29.7
+            },
+            "pressure" : {
+                "min" : 1005.0,
+                "max" : 1008.0
+            },
+            "wind" : {
+                "maxSpd" : 32.0,
+                "aveSpd" : 9.0,
+                "gustMaxSpd" : 34.0
+            },
+            "humidity" : {
+                "ave" : 87.0,
+                "min" : 80.0,
+                "max" : 92.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2013-09-29T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 9.0,
+            "day" : 1.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 28.1,
+                "min" : 26.8,
+                "max" : 29.9
+            },
+            "pressure" : {
+                "min" : 1006.0,
+                "max" : 1010.0
+            },
+            "wind" : {
+                "maxSpd" : 35.0,
+                "aveSpd" : 12.0,
+                "gustMaxSpd" : 43.0
+            },
+            "humidity" : {
+                "ave" : 86.0,
+                "min" : 79.0,
+                "max" : 92.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2013-09-30T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 9.0,
+            "day" : 2.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.6,
+                "min" : 24.8,
+                "max" : 29.1
+            },
+            "pressure" : {
+                "min" : 1006.0,
+                "max" : 1010.0
+            },
+            "wind" : {
+                "maxSpd" : 37.0,
+                "aveSpd" : 11.0,
+                "gustMaxSpd" : 48.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 83.0,
+                "max" : 95.0
+            },
+            "rainfall" : 17.5
+        },
+        "dateUTC" : Date("2013-10-01T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 9.0,
+            "day" : 3.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.6,
+                "min" : 25.6,
+                "max" : 28.7
+            },
+            "pressure" : {
+                "min" : 1007.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 37.0,
+                "aveSpd" : 12.0,
+                "gustMaxSpd" : 45.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 81.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.5
+        },
+        "dateUTC" : Date("2013-10-02T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 9.0,
+            "day" : 4.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.5,
+                "min" : 25.0,
+                "max" : 28.9
+            },
+            "pressure" : {
+                "min" : 1005.0,
+                "max" : 1009.0
+            },
+            "wind" : {
+                "maxSpd" : 45.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 50.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 82.0,
+                "max" : 95.0
+            },
+            "rainfall" : 3.0
+        },
+        "dateUTC" : Date("2013-10-03T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 9.0,
+            "day" : 5.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 28.3,
+                "min" : 27.1,
+                "max" : 29.6
+            },
+            "pressure" : {
+                "min" : 1004.0,
+                "max" : 1007.0
+            },
+            "wind" : {
+                "maxSpd" : 37.0,
+                "aveSpd" : 11.0,
+                "gustMaxSpd" : 40.0
+            },
+            "humidity" : {
+                "ave" : 87.0,
+                "min" : 82.0,
+                "max" : 92.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2013-10-04T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 9.0,
+            "day" : 13.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 28.6,
+                "min" : 25.9,
+                "max" : 30.0
+            },
+            "pressure" : {
+                "min" : 1005.0,
+                "max" : 1009.0
+            },
+            "wind" : {
+                "maxSpd" : 42.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 60.0
+            },
+            "humidity" : {
+                "ave" : 86.0,
+                "min" : 79.0,
+                "max" : 92.0
+            },
+            "rainfall" : 6.3
+        },
+        "dateUTC" : Date("2013-10-12T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2013.0,
+            "month" : 9.0,
+            "day" : 15.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.6,
+                "min" : 24.7,
+                "max" : 29.9
+            },
+            "pressure" : {
+                "min" : 1009.0,
+                "max" : 1012.0
+            },
+            "wind" : {
+                "maxSpd" : 31.0,
+                "aveSpd" : 8.0,
+                "gustMaxSpd" : 37.0
+            },
+            "humidity" : {
+                "ave" : 87.0,
+                "min" : 78.0,
+                "max" : 93.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2013-10-14T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 22.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.3,
+                "min" : 24.2,
+                "max" : 27.9
+            },
+            "pressure" : {
+                "min" : 1009.0,
+                "max" : 1013.0
+            },
+            "wind" : {
+                "maxSpd" : 40.0,
+                "aveSpd" : 13.0,
+                "gustMaxSpd" : 48.0
+            },
+            "humidity" : {
+                "ave" : 80.0,
+                "min" : 74.0,
+                "max" : 85.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-21T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 23.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.9,
+                "min" : 23.7,
+                "max" : 26.3
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1014.0
+            },
+            "wind" : {
+                "maxSpd" : 53.0,
+                "aveSpd" : 21.0,
+                "gustMaxSpd" : 61.0
+            },
+            "humidity" : {
+                "ave" : 80.0,
+                "min" : 75.0,
+                "max" : 85.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-22T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 24.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.7,
+                "min" : 23.4,
+                "max" : 26.2
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1014.0
+            },
+            "wind" : {
+                "maxSpd" : 48.0,
+                "aveSpd" : 20.0,
+                "gustMaxSpd" : 58.0
+            },
+            "humidity" : {
+                "ave" : 77.0,
+                "min" : 68.0,
+                "max" : 83.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-23T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 25.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.7,
+                "min" : 22.4,
+                "max" : 26.0
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1015.0
+            },
+            "wind" : {
+                "maxSpd" : 45.0,
+                "aveSpd" : 15.0,
+                "gustMaxSpd" : 56.0
+            },
+            "humidity" : {
+                "ave" : 71.0,
+                "min" : 64.0,
+                "max" : 79.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-24T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 26.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.8,
+                "min" : 22.6,
+                "max" : 28.0
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1015.0
+            },
+            "wind" : {
+                "maxSpd" : 32.0,
+                "aveSpd" : 10.0,
+                "gustMaxSpd" : 40.0
+            },
+            "humidity" : {
+                "ave" : 73.0,
+                "min" : 54.0,
+                "max" : 83.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-25T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 27.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.8,
+                "min" : 23.6,
+                "max" : 26.5
+            },
+            "pressure" : {
+                "min" : 1012.0,
+                "max" : 1015.0
+            },
+            "wind" : {
+                "maxSpd" : 39.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 45.0
+            },
+            "humidity" : {
+                "ave" : 77.0,
+                "min" : 68.0,
+                "max" : 85.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-26T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 28.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.8,
+                "min" : 22.6,
+                "max" : 26.4
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1014.0
+            },
+            "wind" : {
+                "maxSpd" : 43.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 53.0
+            },
+            "humidity" : {
+                "ave" : 77.0,
+                "min" : 73.0,
+                "max" : 83.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-27T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 29.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.4,
+                "min" : 24.2,
+                "max" : 26.8
+            },
+            "pressure" : {
+                "min" : 1010.0,
+                "max" : 1014.0
+            },
+            "wind" : {
+                "maxSpd" : 51.0,
+                "aveSpd" : 17.0,
+                "gustMaxSpd" : 53.0
+            },
+            "humidity" : {
+                "ave" : 80.0,
+                "min" : 74.0,
+                "max" : 86.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-28T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 30.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.3,
+                "min" : 22.7,
+                "max" : 27.1
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1015.0
+            },
+            "wind" : {
+                "maxSpd" : 42.0,
+                "aveSpd" : 13.0,
+                "gustMaxSpd" : 43.0
+            },
+            "humidity" : {
+                "ave" : 81.0,
+                "min" : 72.0,
+                "max" : 94.0
+            },
+            "rainfall" : 5.3
+        },
+        "dateUTC" : Date("2014-01-29T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 0.0,
+            "day" : 31.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.9,
+                "min" : 23.2,
+                "max" : 27.6
+            },
+            "pressure" : {
+                "min" : 1010.0,
+                "max" : 1014.0
+            },
+            "wind" : {
+                "maxSpd" : 43.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 48.0
+            },
+            "humidity" : {
+                "ave" : 77.0,
+                "min" : 71.0,
+                "max" : 80.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-01-30T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 1.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 24.0,
+                "min" : 22.4,
+                "max" : 25.7
+            },
+            "pressure" : {
+                "min" : 1005.0,
+                "max" : 1010.0
+            },
+            "wind" : {
+                "maxSpd" : 58.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 76.0
+            },
+            "humidity" : {
+                "ave" : 91.0,
+                "min" : 80.0,
+                "max" : 97.0
+            },
+            "rainfall" : 8.4
+        },
+        "dateUTC" : Date("2014-01-31T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 2.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.6,
+                "min" : 24.1,
+                "max" : 29.4
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1012.0
+            },
+            "wind" : {
+                "maxSpd" : 14.0,
+                "aveSpd" : 4.0,
+                "gustMaxSpd" : 26.0
+            },
+            "humidity" : {
+                "ave" : 86.0,
+                "min" : 74.0,
+                "max" : 90.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-01T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 3.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.8,
+                "min" : 23.5,
+                "max" : 28.1
+            },
+            "pressure" : {
+                "min" : 1007.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 14.0,
+                "aveSpd" : 4.0,
+                "gustMaxSpd" : 18.0
+            },
+            "humidity" : {
+                "ave" : 87.0,
+                "min" : 79.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-02T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 4.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.5,
+                "min" : 23.6,
+                "max" : 27.6
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 18.0,
+                "aveSpd" : 5.0,
+                "gustMaxSpd" : 21.0
+            },
+            "humidity" : {
+                "ave" : 90.0,
+                "min" : 82.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-03T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 5.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.4,
+                "min" : 25.2,
+                "max" : 28.3
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 26.0,
+                "aveSpd" : 9.0,
+                "gustMaxSpd" : 31.0
+            },
+            "humidity" : {
+                "ave" : 91.0,
+                "min" : 83.0,
+                "max" : 96.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-04T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 6.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.6,
+                "min" : 25.4,
+                "max" : 27.8
+            },
+            "pressure" : {
+                "min" : 1007.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 39.0,
+                "aveSpd" : 11.0,
+                "gustMaxSpd" : 40.0
+            },
+            "humidity" : {
+                "ave" : 89.0,
+                "min" : 85.0,
+                "max" : 95.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-05T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 7.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.4,
+                "min" : 25.0,
+                "max" : 27.8
+            },
+            "pressure" : {
+                "min" : 1007.0,
+                "max" : 1010.0
+            },
+            "wind" : {
+                "maxSpd" : 34.0,
+                "aveSpd" : 9.0,
+                "gustMaxSpd" : 39.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 83.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-06T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 9.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.7,
+                "min" : 25.7,
+                "max" : 27.8
+            },
+            "pressure" : {
+                "min" : 1006.0,
+                "max" : 1010.0
+            },
+            "wind" : {
+                "maxSpd" : 34.0,
+                "aveSpd" : 12.0,
+                "gustMaxSpd" : 42.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 78.0,
+                "max" : 93.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-08T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 10.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.8,
+                "min" : 24.8,
+                "max" : 28.4
+            },
+            "pressure" : {
+                "min" : 1006.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 29.0,
+                "aveSpd" : 10.0,
+                "gustMaxSpd" : 35.0
+            },
+            "humidity" : {
+                "ave" : 90.0,
+                "min" : 83.0,
+                "max" : 95.0
+            },
+            "rainfall" : 3.6
+        },
+        "dateUTC" : Date("2014-02-09T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 12.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.0,
+                "min" : 24.8,
+                "max" : 27.5
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 45.0,
+                "aveSpd" : 17.0,
+                "gustMaxSpd" : 51.0
+            },
+            "humidity" : {
+                "ave" : 83.0,
+                "min" : 77.0,
+                "max" : 91.0
+            },
+            "rainfall" : 1.5
+        },
+        "dateUTC" : Date("2014-02-11T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 15.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.9,
+                "min" : 24.8,
+                "max" : 27.4
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1015.0
+            },
+            "wind" : {
+                "maxSpd" : 40.0,
+                "aveSpd" : 15.0,
+                "gustMaxSpd" : 45.0
+            },
+            "humidity" : {
+                "ave" : 76.0,
+                "min" : 66.0,
+                "max" : 83.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-14T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 16.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.9,
+                "min" : 24.8,
+                "max" : 27.1
+            },
+            "pressure" : {
+                "min" : 1012.0,
+                "max" : 1015.0
+            },
+            "wind" : {
+                "maxSpd" : 39.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 45.0
+            },
+            "humidity" : {
+                "ave" : 82.0,
+                "min" : 78.0,
+                "max" : 86.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-15T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 18.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.7,
+                "min" : 24.4,
+                "max" : 27.3
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1016.0
+            },
+            "wind" : {
+                "maxSpd" : 31.0,
+                "aveSpd" : 10.0,
+                "gustMaxSpd" : 42.0
+            },
+            "humidity" : {
+                "ave" : 82.0,
+                "min" : 73.0,
+                "max" : 88.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-17T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 20.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.1,
+                "min" : 24.4,
+                "max" : 27.6
+            },
+            "pressure" : {
+                "min" : 1012.0,
+                "max" : 1016.0
+            },
+            "wind" : {
+                "maxSpd" : 31.0,
+                "aveSpd" : 10.0,
+                "gustMaxSpd" : 37.0
+            },
+            "humidity" : {
+                "ave" : 77.0,
+                "min" : 69.0,
+                "max" : 84.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-19T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 24.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.0,
+                "min" : 23.7,
+                "max" : 27.4
+            },
+            "pressure" : {
+                "min" : 1012.0,
+                "max" : 1016.0
+            },
+            "wind" : {
+                "maxSpd" : 43.0,
+                "aveSpd" : 16.0,
+                "gustMaxSpd" : 50.0
+            },
+            "humidity" : {
+                "ave" : 78.0,
+                "min" : 72.0,
+                "max" : 87.0
+            },
+            "rainfall" : 1.5
+        },
+        "dateUTC" : Date("2014-02-23T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 1.0,
+            "day" : 26.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.2,
+                "min" : 25.1,
+                "max" : 27.7
+            },
+            "pressure" : {
+                "min" : 1012.0,
+                "max" : 1016.0
+            },
+            "wind" : {
+                "maxSpd" : 34.0,
+                "aveSpd" : 12.0,
+                "gustMaxSpd" : 39.0
+            },
+            "humidity" : {
+                "ave" : 84.0,
+                "min" : 78.0,
+                "max" : 88.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-02-25T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 13.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.6,
+                "min" : 24.7,
+                "max" : 28.6
+            },
+            "pressure" : {
+                "min" : 1010.0,
+                "max" : 1014.0
+            },
+            "wind" : {
+                "maxSpd" : 45.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 45.0
+            },
+            "humidity" : {
+                "ave" : 89.0,
+                "min" : 83.0,
+                "max" : 96.0
+            },
+            "rainfall" : 1.5
+        },
+        "dateUTC" : Date("2014-03-12T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 14.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.4,
+                "min" : 26.3,
+                "max" : 29.1
+            },
+            "pressure" : {
+                "min" : 1011.0,
+                "max" : 1015.0
+            },
+            "wind" : {
+                "maxSpd" : 37.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 43.0
+            },
+            "humidity" : {
+                "ave" : 89.0,
+                "min" : 83.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.5
+        },
+        "dateUTC" : Date("2014-03-13T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 15.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 26.6,
+                "min" : 25.6,
+                "max" : 27.8
+            },
+            "pressure" : {
+                "min" : 1013.0,
+                "max" : 1016.0
+            },
+            "wind" : {
+                "maxSpd" : 43.0,
+                "aveSpd" : 18.0,
+                "gustMaxSpd" : 56.0
+            },
+            "humidity" : {
+                "ave" : 89.0,
+                "min" : 83.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.5
+        },
+        "dateUTC" : Date("2014-03-14T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 20.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.0,
+                "min" : 25.8,
+                "max" : 28.8
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1012.0
+            },
+            "wind" : {
+                "maxSpd" : 34.0,
+                "aveSpd" : 11.0,
+                "gustMaxSpd" : 39.0
+            },
+            "humidity" : {
+                "ave" : 85.0,
+                "min" : 79.0,
+                "max" : 90.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-03-19T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 22.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.5,
+                "min" : 26.5,
+                "max" : 28.9
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 42.0,
+                "aveSpd" : 18.0,
+                "gustMaxSpd" : 55.0
+            },
+            "humidity" : {
+                "ave" : 80.0,
+                "min" : 73.0,
+                "max" : 85.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-03-21T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 23.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.7,
+                "min" : 24.7,
+                "max" : 27.3
+            },
+            "pressure" : {
+                "min" : 1010.0,
+                "max" : 1014.0
+            },
+            "wind" : {
+                "maxSpd" : 53.0,
+                "aveSpd" : 19.0,
+                "gustMaxSpd" : 64.0
+            },
+            "humidity" : {
+                "ave" : 86.0,
+                "min" : 79.0,
+                "max" : 94.0
+            },
+            "rainfall" : 1.5
+        },
+        "dateUTC" : Date("2014-03-22T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 24.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 25.8,
+                "min" : 24.6,
+                "max" : 27.8
+            },
+            "pressure" : {
+                "min" : 1009.0,
+                "max" : 1012.0
+            },
+            "wind" : {
+                "maxSpd" : 48.0,
+                "aveSpd" : 19.0,
+                "gustMaxSpd" : 61.0
+            },
+            "humidity" : {
+                "ave" : 93.0,
+                "min" : 87.0,
+                "max" : 97.0
+            },
+            "rainfall" : 9.7
+        },
+        "dateUTC" : Date("2014-03-23T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 25.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.2,
+                "min" : 26.1,
+                "max" : 28.7
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1012.0
+            },
+            "wind" : {
+                "maxSpd" : 43.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 47.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 84.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.3
+        },
+        "dateUTC" : Date("2014-03-24T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 26.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.5,
+                "min" : 26.2,
+                "max" : 29.0
+            },
+            "pressure" : {
+                "min" : 1009.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 40.0,
+                "aveSpd" : 14.0,
+                "gustMaxSpd" : 48.0
+            },
+            "humidity" : {
+                "ave" : 88.0,
+                "min" : 82.0,
+                "max" : 93.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-03-25T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 27.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.4,
+                "min" : 26.1,
+                "max" : 28.9
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 40.0,
+                "aveSpd" : 13.0,
+                "gustMaxSpd" : 50.0
+            },
+            "humidity" : {
+                "ave" : 89.0,
+                "min" : 83.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.5
+        },
+        "dateUTC" : Date("2014-03-26T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 29.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.7,
+                "min" : 26.7,
+                "max" : 29.0
+            },
+            "pressure" : {
+                "min" : 1009.0,
+                "max" : 1013.0
+            },
+            "wind" : {
+                "maxSpd" : 39.0,
+                "aveSpd" : 13.0,
+                "gustMaxSpd" : 43.0
+            },
+            "humidity" : {
+                "ave" : 87.0,
+                "min" : 82.0,
+                "max" : 92.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-03-28T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 30.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.9,
+                "min" : 26.6,
+                "max" : 28.9
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1012.0
+            },
+            "wind" : {
+                "maxSpd" : 32.0,
+                "aveSpd" : 11.0,
+                "gustMaxSpd" : 39.0
+            },
+            "humidity" : {
+                "ave" : 85.0,
+                "min" : 81.0,
+                "max" : 91.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-03-29T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 2.0,
+            "day" : 31.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.2,
+                "min" : 26.4,
+                "max" : 28.6
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 34.0,
+                "aveSpd" : 12.0,
+                "gustMaxSpd" : 43.0
+            },
+            "humidity" : {
+                "ave" : 89.0,
+                "min" : 81.0,
+                "max" : 94.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-03-30T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 3.0,
+            "day" : 1.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.8,
+                "min" : 26.1,
+                "max" : 28.9
+            },
+            "pressure" : {
+                "min" : 1007.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 29.0,
+                "aveSpd" : 9.0,
+                "gustMaxSpd" : 31.0
+            },
+            "humidity" : {
+                "ave" : 85.0,
+                "min" : 82.0,
+                "max" : 90.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-03-31T16:00:00.000Z")
+    },
+    {
+        "id" : "IAKLANBO2",
+        "date" : {
+            "year" : 2014.0,
+            "month" : 3.0,
+            "day" : 2.0
+        },
+        "data" : {
+            "temp" : {
+                "ave" : 27.7,
+                "min" : 26.3,
+                "max" : 29.4
+            },
+            "pressure" : {
+                "min" : 1008.0,
+                "max" : 1011.0
+            },
+            "wind" : {
+                "maxSpd" : 26.0,
+                "aveSpd" : 8.0,
+                "gustMaxSpd" : 34.0
+            },
+            "humidity" : {
+                "ave" : 87.0,
+                "min" : 79.0,
+                "max" : 93.0
+            },
+            "rainfall" : 0.0
+        },
+        "dateUTC" : Date("2014-04-01T16:00:00.000Z")
+    }
+    ];
+
+    data.forEach(weather_data => WeatherData.insert(weather_data));
+  }
 });
