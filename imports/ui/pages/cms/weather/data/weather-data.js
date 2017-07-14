@@ -8,7 +8,6 @@ Template.WeatherDataCMS.onCreated(() => {
   this.stationID = FlowRouter.current().params.stationID
   Meteor.subscribe('weather-data-30-by-id', this.stationID )
   Meteor.subscribe('weather_station', this.stationID)
-  Meteor.subscribe('weather_data')
 })
 
 Template.WeatherDataCMS.onRendered(() => {
@@ -28,7 +27,7 @@ Template.WeatherDataCMS.helpers({
   },
 
   records: () => {
-    const records = WeatherData.find({},{limit: 20}).fetch()
+    const records = WeatherData.find({}).fetch()
 
     return records.reverse()
   }
