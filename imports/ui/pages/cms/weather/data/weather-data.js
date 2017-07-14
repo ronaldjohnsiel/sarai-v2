@@ -28,7 +28,7 @@ Template.WeatherDataCMS.helpers({
   },
 
   records: () => {
-    const records = WeatherData.find({}).fetch()
+    const records = WeatherData.find({},{limit: 20}).fetch()
 
     return records.reverse()
   }
@@ -40,10 +40,6 @@ Template.WeatherDataCMS.events({
 
 const initWeatherDataDialog = (dialogID) => {
   const dialog = document.querySelector(`#${dialogID}`)
-
-  dialog.querySelector('.cancel').addEventListener('click', () => {
-    dialog.close()
-  })
 
   dialog.querySelector('.save').addEventListener('click', () => {
     const tempAve = $('#cms-wd-temp-ave-input').val()
@@ -71,7 +67,5 @@ const initWeatherDataDialog = (dialogID) => {
       }
       showToast(toast)
     })
-
-    dialog.close()
   })
 }
